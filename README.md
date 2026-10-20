@@ -6,7 +6,7 @@ You do **not** need to know programming, React, Node.js, or “how AI works”.
 **Short version:** open [`QUICKSTART.md`](QUICKSTART.md) and follow it.  
 **This README:** same ideas, explained more slowly (what to click, what `@` means, what to paste).
 
-**Example made with Lazy Guy:** [azure-B/BU_Team](https://github.com/azure-B/BU_Team)
+**Example made with Lazy Guy:** [azure-B/BU_Team](https://github.com/azure-B/BU_Team) / [site](https://bu-team.netlify.app/)
 
 Questions? **benefit5758@naver.com**
 
