@@ -6,7 +6,7 @@ Every role follows `.AI/docs/00` → `06` → `07`, then this file.
 **Spec is automated:** humans ask for **development only**.  
 The agent always creates/updates `.AI/md/specs/<feature>.md` first (see `.AI/docs/07-ai-md-workflow.md`).
 
-Human-facing copy: [README — Roles](../../README.md#5-roles--front--back--python)
+Human-facing: [QUICKSTART.md](../../QUICKSTART.md) · [README hub](../../README.md) · one-file prompts in [`.AI/prompts/`](../prompts/)
 
 ## Quick Map
 

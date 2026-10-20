@@ -4,12 +4,15 @@ This file is the **shared entry** for Cursor, Codex, and Antigravity.
 `CLAUDE.md` must stay a **verbatim copy** of this file (Claude Code requires that name).
 
 **Full rules SSOT:** `.AI/docs/` — do not invent parallel conventions.  
-**Live tree:** root `Folder.md` (update whenever files move).
+**Live tree:** root `Folder.md` (update whenever files move).  
+**Beginners:** root `QUICKSTART.md` + one file under `.AI/prompts/`.
 
 ## Boot (Required)
 
 1. `git pull origin main` unless the user already pulled or said to skip
-2. Read, in order:
+2. If the user attached `.AI/prompts/*.md`, follow that prompt first (open every path it lists).
+3. Read, in order:
+   - `QUICKSTART.md` (when helping beginners)
    - `.AI/docs/00-overview.md`
    - `.AI/docs/06-uniformity.md`
    - `.AI/docs/07-ai-md-workflow.md`
@@ -35,6 +38,8 @@ This file is the **shared entry** for Cursor, Codex, and Antigravity.
 11. **Folder.md:** always refresh the root live tree after add/remove/move.
 12. **MCP tokens:** only via temporary root `MCPkeys.json`; register with `node scripts/register-mcp.mjs`; file is deleted after success (`.AI/docs/09-mcp-setup.md`).
 13. **DB/ERD:** keep `.AI/md/db/erd.md` current; AI may adapt the ERD for best results; Supabase MCP SQL write/DDL only after user permission (`.AI/docs/10-db-erd-supabase.md`).
+14. **Errors:** fix in one pass when possible; always end with a copy-paste prompt using `@.AI/prompts/G-fix.md` (`.AI/docs/11-error-fix.md`). Never leave beginners without the next paste command.
+15. **Preview:** when the user asks to see the result, or after page/API edits, run/show the app via `node scripts/dev-up.mjs` (`.AI/docs/12-run-preview.md`). Check ports first — **never** start duplicate Front/Back servers. Give the localhost URL.
 
 ## Rules Index
 
@@ -51,7 +56,11 @@ This file is the **shared entry** for Cursor, Codex, and Antigravity.
 | Roles + context | `.AI/docs/08-roles.md` |
 | MCP setup | `.AI/docs/09-mcp-setup.md` |
 | DB / ERD / SQL test | `.AI/docs/10-db-erd-supabase.md` |
+| Error one-pass fix | `.AI/docs/11-error-fix.md` |
+| Run / show preview | `.AI/docs/12-run-preview.md` |
+| Beginner hub | `QUICKSTART.md` |
+| One-file prompts | `.AI/prompts/` (includes `G-fix.md`, `H-preview.md`) |
 
 ## Install / How to Dev? / MCP
 
-See `README.md`.
+See `QUICKSTART.md` (beginners) and `README.md` (full hub).

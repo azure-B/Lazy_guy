@@ -8,7 +8,8 @@ Rules: `.AI/docs/04-md-documentation.md` · `.AI/docs/06-uniformity.md`
 ```
 lazy_guy/
 ├── Folder.md                 ← this file (live tree)
-├── README.md                 ← How to Dev?, MCP, install
+├── QUICKSTART.md             ← absolute beginners start here
+├── README.md                 ← non-major friendly full guide (+ @ how-to)
 ├── AGENTS.md                 ← shared IDE entry (= CLAUDE.md)
 ├── CLAUDE.md
 ├── env_example               ← Render / Netlify / Supabase URL map
@@ -16,6 +17,16 @@ lazy_guy/
 ├── .gitignore
 ├── .AI/                      ← all agent + project markdown
 │   ├── README.md
+│   ├── prompts/              ← one-file chat prompts (A–F)
+│   │   ├── README.md
+│   │   ├── A-mcp.md
+│   │   ├── B-front.md
+│   │   ├── C-back.md
+│   │   ├── D-db.md
+│   │   ├── E-python.md
+│   │   ├── F-fullstack.md
+│   │   ├── G-fix.md
+│   │   └── H-preview.md
 │   ├── docs/                 ← agent rule SSOT
 │   │   ├── 00-overview.md
 │   │   ├── 01-git.md
@@ -27,7 +38,9 @@ lazy_guy/
 │   │   ├── 07-ai-md-workflow.md
 │   │   ├── 08-roles.md
 │   │   ├── 09-mcp-setup.md
-│   │   └── 10-db-erd-supabase.md
+│   │   ├── 10-db-erd-supabase.md
+│   │   ├── 11-error-fix.md
+│   │   └── 12-run-preview.md
 │   └── md/                   ← specs, API catalog, jobs, ERD
 │       ├── db/
 │       │   └── erd.md        ← living ERD (AI may adapt)

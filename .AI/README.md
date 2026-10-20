@@ -1,17 +1,14 @@
 # .AI — Markdown home
 
-All project Markdown for agents and feature work lives here. Root stays clean.
-
 | Path | Purpose |
 |------|---------|
+| `prompts/` | **One-file chat prompts** for beginners (A–F) |
 | `docs/` | Agent rules SSOT (`00`–`10`) |
-| `md/specs/` | Feature specs (non-engineers + AI) |
+| `md/specs/` | Feature specs (auto-created by AI) |
 | `md/API/` | API catalog |
-| `md/db/erd.md` | Living ERD (AI may adapt) |
-| `md/jobs/` | Work logs (back / front) |
+| `md/db/erd.md` | Living ERD |
+| `md/jobs/` | Work logs |
 
-**Live folder tree (project root):** `Folder.md` — update on every structure change.
+**Humans who do not know AI:** start at root [`QUICKSTART.md`](../QUICKSTART.md) and attach one file from `prompts/`.
 
-**IDE entry (project root):** `AGENTS.md` ≡ `CLAUDE.md` (must stay at root for auto-load).
-
-Boot: `.AI/docs/00-overview.md` → `06` → `07` → role docs (`08`) / MCP (`09`).
+**Live folder tree:** root [`Folder.md`](../Folder.md).
