@@ -17,11 +17,11 @@ Show me the result in the browser. I am a beginner.
 
 ## AI: do this (in order)
 
-1. Run `node scripts/dev-up.mjs` (or `--front` / `--back` as needed).
-2. **Do not** start a second server if the port is already open (the script skips duplicates).
-3. Tell me the exact URL in easy words, e.g. `Open http://localhost:5173/health`
-4. If the page was just edited, still ensure servers are up and give the link again.
-5. If start fails, use `.AI/prompts/G-fix.md` rules and give me a paste-ready fix prompt.
+1. Run `node scripts/dev-up.mjs` (or `--front` / `--back` as needed). Do **not** block on Git sync for preview-only.
+2. Trust the helper’s READY / FAILED summary (it checks Lazy Guy identity, not only open ports).
+3. Tell me only verified URLs, e.g. `Open http://localhost:5173/health`
+4. If the page was just edited, still ensure servers are ready and give the link again.
+5. If start fails (non-zero exit / FAILED line), use `.AI/prompts/G-fix.md` and give me a paste-ready fix prompt. Check `.dev-up-logs/` when present.
 
 ## Rules
 

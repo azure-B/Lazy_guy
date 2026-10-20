@@ -55,10 +55,12 @@ lazy_guy/
 │       │   ├── README.md
 │       │   ├── _TEMPLATE.md
 │       │   ├── health-check.md
-│       │   └── readme-first-visit.md
+│       │   ├── readme-first-visit.md
+│       │   └── git-sync-and-dev-up.md
 │       └── jobs/
 │           ├── docs/
-│           │   └── 2026-10-20_readme-first-visit.md
+│           │   ├── 2026-10-20_readme-first-visit.md
+│           │   └── 2026-10-20_git-sync-and-dev-up.md
 │           ├── back/
 │           │   └── 2026-10-20_scaffold.md
 │           └── front/

@@ -3,8 +3,8 @@ description: Git — pointer to docs/01-git.md
 alwaysApply: true
 ---
 
-Follow **`docs/01-git.md`** and the Git invariant in **`AGENTS.md`**.
+Follow **`.AI/docs/01-git.md`** and the Git invariant in **`AGENTS.md`**.
 
-- Pull: `git pull origin main` before work (unless skipped).
-- Commit only when the user asks.
+- Pre-work sync: state-aware workflow in `.AI/docs/01-git.md` (not unconditional `git pull origin main`).
+- After a finished task: offer a short save/upload choice; act only within the selected scope (`.AI/docs/01-git.md`).
 - Message: `[YYYY.MM.DD] - work summary` (English).

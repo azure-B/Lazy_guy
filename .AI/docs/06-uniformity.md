@@ -6,7 +6,7 @@ Same user request ??same folders, same MD updates, same commit style on Cursor, 
 
 ```
 1. Load entry file (AGENTS.md or CLAUDE.md ??same text)
-2. git pull origin main (unless skipped)
+2. Safe Git sync per docs/01-git.md (implementation only; skip preview/ZIP/offline)
 3. Read docs/00-overview.md
 4. Read docs/06-uniformity.md (this file)
 5. Read docs/07-ai-md-workflow.md
@@ -27,7 +27,7 @@ These eight lines are copied **verbatim** into `AGENTS.md`, `CLAUDE.md`, and Cur
 4. **front** = React pages/components; HTTP only via `front/src/services/api.js`.
 5. **After back:** update `.AI/md/API/README.md` + `.AI/md/jobs/back/` (+ `Folder.md` if structure changed).
 6. **After front:** update `.AI/md/jobs/front/` with APIs used + filenames (+ `Folder.md` if needed).
-7. **Git:** pull before work; commit only when asked; message `[YYYY.MM.DD] - work summary`.
+7. **Git:** safe sync per `docs/01-git.md`; after a finished task offer save/upload choice; message `[YYYY.MM.DD] - work summary`.
 8. **Host/data:** follow `docs/05-netlify-supabase.md` and root `env_example` (Render + Netlify + Supabase).
 9. **Stitch UI:** HTML from View code goes in `front/publish/`; React conversion extracts shared UI into `front/src/components/common/` (`docs/03-front.md`).
 10. **Security:** Express must enforce CORS allowlists, no SQL/string injection, input validation, safe errors (`docs/02-back.md`).

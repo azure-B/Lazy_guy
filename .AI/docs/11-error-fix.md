@@ -1,6 +1,6 @@
-# 11 — Errors: Fix in One Pass + Give the User a Prompt
+# 11 — Errors: Diagnose, Fix, Give the User a Prompt
 
-When something fails (build error, red screen, API 500, MCP fail, wrong UI), the agent must **fix it thoroughly in one response** when possible — and always **teach the human the exact next prompt** so even AI beginners can continue.
+When something fails (build error, red screen, API 500, MCP fail, wrong UI), the agent must **find the root cause and fix the related places** in one response when practical — and always **teach the human the exact next prompt** so beginners can continue.
 
 Related: `QUICKSTART.md` · `.AI/prompts/G-fix.md`
 
@@ -8,7 +8,7 @@ Related: `QUICKSTART.md` · `.AI/prompts/G-fix.md`
 
 | Goal | Behavior |
 |------|----------|
-| One-pass fix | Find root cause → change all needed files → re-check docs (jobs/API/Folder/ERD) |
+| Focused fix | Find root cause → change related files → update docs (jobs/API/Folder/ERD) when needed |
 | Beginner-safe | End with a **copy-paste** message the user can send if the problem remains |
 | No endless ping-pong | Do not ask the user to “try random things” without a ready prompt |
 
@@ -34,7 +34,7 @@ If it still fails, do this:
 --- paste below ---
 @.AI/prompts/G-fix.md
 
-Fix everything in one pass. I am a beginner.
+Find the root cause and fix the related places. I am a beginner.
 
 Error / what I see:
 [PASTE THE FULL ERROR HERE]

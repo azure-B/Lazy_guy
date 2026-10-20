@@ -10,3 +10,6 @@ front/dist/
 back/dist/
 *.log
 .DS_Store
+
+# Local preview helper logs (scripts/dev-up.mjs)
+.dev-up-logs/

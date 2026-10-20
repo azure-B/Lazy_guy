@@ -15,26 +15,28 @@ Questions? benefit5758@naver.com
 
 | Path | Goal | MCP / cloud tokens? |
 |------|------|---------------------|
-| **[A. Quick try](#a-quick-try--see-the-local-app-first)** | See the local app first | **No** |
-| **[B. Full setup](#b-full-setup--mcp-and-cloud-services)** | Connect GitHub / Supabase / deploy helpers | **Yes**, when you need them |
+| **[1. Quick try](#1-quick-try--see-the-local-app-first)** | See the local app first | **No** |
+| **[2. Full setup](#2-full-setup--mcp-and-cloud-services)** | Connect GitHub / Supabase / deploy helpers | **Yes**, when you need them |
 
-Do **A** first unless you already know you need cloud tools today.
+Do **§1 Quick try** first unless you already know you need cloud tools today.
+
+ZIP downloads without Git: skip any “pull / sync” steps. Local preview still works.
 
 ---
 
 ## Jump list
 
 - [0. Install one AI app](#0-install-one-ai-app)
-- [A. Quick try](#a-quick-try--see-the-local-app-first)
-- [B. Full setup](#b-full-setup--mcp-and-cloud-services)
-- [2. Pick your position](#2-pick-your-position)
-- [3. How to ask](#3-how-to-ask-the-ai-every-time)
-- [4. Daily checklist](#4-your-daily-checklist)
-- [5. Fix errors (G-fix)](#5-if-there-is-an-error-important)
-- [6. What you never need to do](#6-what-you-never-need-to-do)
-- [7. Stuck?](#7-if-you-get-stuck-not-a-code-error)
-- [8. Did it work?](#8-after-the-ai-finishes--quick-did-it-work)
-- [9. Preview (H-preview)](#9-see-the-result-on-screen-react--node)
+- [1. Quick try](#1-quick-try--see-the-local-app-first)
+- [2. Full setup](#2-full-setup--mcp-and-cloud-services)
+- [3. Pick your position](#3-pick-your-position)
+- [4. How to ask](#4-how-to-ask-the-ai-every-time)
+- [5. Daily checklist](#5-your-daily-checklist)
+- [6. Fix errors (G-fix)](#6-if-there-is-an-error-important)
+- [7. What you never need to do](#7-what-you-never-need-to-do)
+- [8. Stuck?](#8-if-you-get-stuck-not-a-code-error)
+- [9. Did it work?](#9-after-the-ai-finishes--quick-did-it-work)
+- [10. Preview (H-preview)](#10-see-the-result-on-screen-react--node)
 
 ---
 
@@ -50,18 +52,19 @@ Same folder. Same prompts under `.AI/prompts/`.
 | **Claude Code** | Run in this folder (reads `CLAUDE.md`) → `Read .AI/prompts/….md and follow it` | [ide setup → Claude Code](.AI/docs/13-ide-setup.md#claude-code) |
 | **Antigravity** | Open folder → rules → `AGENTS.md` → `@` or `Read …` | [ide setup → Antigravity](.AI/docs/13-ide-setup.md#antigravity) |
 
-Also need **Node.js** on your computer for local preview (`npm` / `node scripts/dev-up.mjs`).
+Also need **Node.js 18+** (20 LTS recommended) for local preview (`npm` / `node scripts/dev-up.mjs`).
 
 ---
 
-## A. Quick try — see the local app first
+## 1. Quick try — see the local app first
 
-**Goal:** open the starter page without creating MCP tokens or a database.
+**Goal:** open the starter page without creating MCP tokens or a database.  
+Git sync is **not** required for this path.
 
 ### You need
 
 - This project folder open in your AI app  
-- Node.js installed  
+- Node.js 18+ installed  
 - Prompt [`.AI/prompts/H-preview.md`](.AI/prompts/H-preview.md)
 
 ### Steps
@@ -86,19 +89,26 @@ Follow the prompt. Do not start servers twice if they are already running.
 node scripts/dev-up.mjs
 ```
 
-Then open `http://localhost:5173`.
+Then open `http://localhost:5173` only if the command reports **READY**.
 
-The helper installs dependencies when `node_modules` is missing. Local preview does not need MCP keys or a cloud database.
+The helper:
+
+- Installs dependencies when `node_modules` is missing  
+- Checks that Front/Back look like **this** project (not just an open port)  
+- Writes logs under `.dev-up-logs/` if it starts a service  
+- Exits with an error if a requested service fails  
+
+Local preview does not need MCP keys or a cloud database.
 
 ### If Quick try fails
 
-Go to [§5 G-fix](#5-if-there-is-an-error-important).
+Go to [§6 G-fix](#6-if-there-is-an-error-important).
 
-When you later need GitHub/DB/deploy helpers → [B. Full setup](#b-full-setup--mcp-and-cloud-services).
+When you later need GitHub/DB/deploy helpers → [§2 Full setup](#2-full-setup--mcp-and-cloud-services).
 
 ---
 
-## B. Full setup — MCP and cloud services
+## 2. Full setup — MCP and cloud services
 
 **MCP** = letting your AI coding tool use helper connections (GitHub, Supabase, Netlify, Render).  
 Useful for Back / deploy / database work. **Not required** to see the local home page.
@@ -107,7 +117,7 @@ Useful for Back / deploy / database work. **Not required** to see the local home
 
 | Item | For Quick try | For cloud / MCP helpers |
 |------|---------------|-------------------------|
-| AI coding app + Node.js | Required | Required |
+| AI coding app + Node.js 18+ | Required | Required |
 | GitHub token in MCP | No | Typical yes |
 | Supabase project | No | When you use real DB |
 | Netlify / Render tokens | No | When you use those deploy helpers |
@@ -145,7 +155,7 @@ Details: [`.AI/docs/09-mcp-setup.md`](.AI/docs/09-mcp-setup.md)
 
 ---
 
-## 2. Pick your position
+## 3. Pick your position
 
 | I am… | I make… | Use this prompt |
 |-------|---------|-----------------|
@@ -156,14 +166,14 @@ Details: [`.AI/docs/09-mcp-setup.md`](.AI/docs/09-mcp-setup.md)
 
 ---
 
-## 3. How to ask the AI (every time)
+## 4. How to ask the AI (every time)
 
 1. Open Chat.  
 2. Attach **exactly one** prompt (`@` or `Read .AI/prompts/….md and follow it`).  
 3. If Front: also attach HTML under `front/publish/` when you have it.  
 4. Type what you want in plain English.  
 5. Send. The AI should create/update a spec under `.AI/md/specs/`, write code, and update docs when needed.  
-6. Preview → [§9](#9-see-the-result-on-screen-react--node). Errors → [§5](#5-if-there-is-an-error-important).
+6. Preview → [§10](#10-see-the-result-on-screen-react--node). Errors → [§6](#6-if-there-is-an-error-important).
 
 ### Example messages
 
@@ -192,7 +202,7 @@ Follow the prompt.
 
 ---
 
-## 4. Your daily checklist
+## 5. Your daily checklist
 
 ```text
 [ ] Open this project in my AI app
@@ -203,19 +213,19 @@ Follow the prompt.
 [ ] I wrote what I want in simple words
 [ ] I sent the message
 [ ] I reviewed what the AI changed
-[ ] If something is wrong → §5 (G-fix)
-[ ] Want to see it → §9 (H-preview)
+[ ] If something is wrong → §6 (G-fix)
+[ ] Want to see it → §10 (H-preview)
 ```
 
 ---
 
-## 5. If there is an error (important)
+## 6. If there is an error (important)
 
 1. Attach **`.AI/prompts/G-fix.md`**.  
 2. Paste:
 
 ```text
-Fix everything in one pass. I am a beginner.
+Find the root cause and fix the related places. I am a beginner.
 
 Error / what I see:
 [PASTE THE FULL ERROR HERE]
@@ -226,23 +236,23 @@ What I was trying to do:
 Follow G-fix.md. Explain in easy words.
 ```
 
-3. The AI should fix in one pass when possible, tell you how to check, and give another paste box if it still fails.
+3. The AI should diagnose and fix related places when possible, tell you how to check, and give another paste box if it still fails.
 
 Rules: [`.AI/docs/11-error-fix.md`](.AI/docs/11-error-fix.md)
 
 ---
 
-## 6. What you never need to do
+## 7. What you never need to do
 
 - Write a long spec by yourself (AI auto-creates it).  
 - Attach ten rule files by hand (the prompt tells the AI what to open).  
-- Invent your own “fix prompt” — use **§5**.  
+- Invent your own “fix prompt” — use **§6**.  
 - Memorize Express or React.  
 - Commit secrets (`MCPkeys.json`, `.env`).
 
 ---
 
-## 7. If you get stuck (not a code error)
+## 8. If you get stuck (not a code error)
 
 1. Use G-fix if there is error text.  
 2. Or ask: `I am stuck. Explain like I am new. What should I click next?`  
@@ -251,7 +261,7 @@ Rules: [`.AI/docs/11-error-fix.md`](.AI/docs/11-error-fix.md)
 
 ---
 
-## 8. After the AI finishes — quick “did it work?”
+## 9. After the AI finishes — quick “did it work?”
 
 | Position | Check |
 |----------|--------|
@@ -264,7 +274,7 @@ Keep [`Folder.md`](Folder.md) accurate — the AI should update it when files mo
 
 ---
 
-## 9. See the result on screen (React + Node)
+## 10. See the result on screen (React + Node)
 
 1. Attach **`.AI/prompts/H-preview.md`**.  
 2. Paste:
@@ -276,9 +286,10 @@ I need API too: [yes / no]
 Follow the prompt. Do not start servers twice if they are already running.
 ```
 
-3. Open the link (usually `http://localhost:5173/...`).
+3. Open a URL only if `dev-up` (or the AI) reports that service as **ready** (usually `http://localhost:5173/...`).
 
-The helper `node scripts/dev-up.mjs` starts Front (`5173`) and/or Back (`3001`) only if not already running.
+`node scripts/dev-up.mjs` verifies Lazy Guy Front/Back before printing READY.  
+Unrecognized processes on the same ports are treated as failures, not “already running.”
 
 Rules: [`.AI/docs/12-run-preview.md`](.AI/docs/12-run-preview.md)
 
@@ -286,7 +297,7 @@ Rules: [`.AI/docs/12-run-preview.md`](.AI/docs/12-run-preview.md)
 
 **Remember**
 
-- First visit → **Quick try (A)**  
-- Cloud helpers → **Full setup (B)**  
-- Errors → **G-fix**  
-- See the page → **H-preview**
+- First visit → **Quick try (§1)**  
+- Cloud helpers → **Full setup (§2)**  
+- Errors → **G-fix (§6)**  
+- See the page → **H-preview (§10)**

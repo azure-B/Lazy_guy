@@ -68,13 +68,11 @@ Supported IDEs: **Cursor**, **Codex**, **Claude Code**, **Antigravity**.
 
 Human-facing steps: root `README.md` (first visit) + `QUICKSTART.md` (Quick try / Full setup)
 
-## Git Sync (Required)
+## Git Sync (Required for implementation)
 
-```bash
-git pull origin main
-```
-
-Skip only if the user already pulled or asked to skip. On failure, stop and explain.
+Follow **`.AI/docs/01-git.md`** (state-aware sync).  
+Do not use unconditional `git pull origin main`.  
+Skip for ZIP/non-Git folders, preview-only work, or when the user says to skip / work offline.
 
 ## Rules Index
 

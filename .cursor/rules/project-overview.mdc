@@ -17,7 +17,7 @@ alwaysApply: true
 4. front HTTP only via `front/src/services/api.js`.
 5. After back: `.AI/md/API/README.md` + `.AI/md/jobs/back/` (+ `Folder.md` if needed).
 6. After front: `.AI/md/jobs/front/` with APIs + filenames (+ `Folder.md` if needed).
-7. Git: pull before work; commit only when asked; `[YYYY.MM.DD] - work summary`.
+7. Git: safe sync per `.AI/docs/01-git.md`; after a finished task offer save/upload choice; `[YYYY.MM.DD] - work summary`.
 8. Host/data: `.AI/docs/05-netlify-supabase.md` + `env_example`.
 9. Stitch HTML → `front/publish/`; shared React UI → `components/common/`.
 10. Express security per `.AI/docs/02-back.md`.

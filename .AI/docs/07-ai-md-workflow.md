@@ -47,7 +47,7 @@ See README **How to Dev?** and `.AI/docs/03-front.md`.
 
 ```
 1. Entry boot (AGENTS.md / CLAUDE.md)
-2. git pull origin main (unless skipped)
+2. Safe Git sync per docs/01-git.md (implementation only; skip preview/ZIP/offline)
 3. Read .AI/docs/00 ? 06 ? 07 ? area ? 05/09/10 if needed
 4. Auto-create/update .AI/md/specs/<feature>.md   ? always
 5. If UI: read front/publish/ HTML when provided

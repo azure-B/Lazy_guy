@@ -4,17 +4,26 @@
 
 Build, fix, and preview your web app with one task prompt at a time.
 
-Lazy Guy gives your AI coding tool a shared set of project rules, task prompts, and documentation workflows — so you spend less time figuring out what to ask next.
+Lazy Guy gives your AI coding tool a shared set of project rules, task prompts, and documentation workflows.
+That way you spend less time figuring out what to ask next.
 
-Works with Cursor, Codex, Claude Code, and Antigravity. See [tool support](#tool-support) for setup details and limitations.
+Works with Cursor, Codex, Claude Code, and Antigravity.
+See [tool support](#tool-support) for setup details and limitations.
 
-[Get started](#quick-start) · [Example project](#example-project) · [Task prompts](#task-prompts) · [Full setup](#connect-services-optional)
+[Get started](#quick-start)
+·
+[Example project](#example-project)
+·
+[Task prompts](#task-prompts)
+·
+[Full setup](#connect-services-optional)
 
 ---
 
 ## Why Lazy Guy?
 
-Opening an AI coding tool is easy. Knowing what to do next is harder.
+Opening an AI coding tool is easy.
+Knowing what to do next is harder.
 
 - What should I ask to build a page?
 - How do I connect the frontend and backend?
@@ -24,7 +33,8 @@ Opening an AI coding tool is easy. Knowing what to do next is harder.
 
 Lazy Guy provides a starting point for each of these tasks.
 
-It is not a new AI model or a replacement for your coding tool. It is a reusable project structure that helps you work with one.
+It is not a new AI model or a replacement for your coding tool.
+It is a reusable project structure that helps you work with one.
 
 ## Who is it for?
 
@@ -32,13 +42,15 @@ It is not a new AI model or a replacement for your coding tool. It is a reusable
 - People trying AI coding tools for the first time
 - Small teams that want shared rules, feature specs, and work notes
 
-You do not need to know every framework before starting. You should still review generated code, check the result, and approve sensitive changes.
+You do not need to know every framework before starting.
+You should still review generated code, check the result, and approve sensitive changes.
 
 ---
 
 ## Example project
 
-**BU_Team** is a full collaboration project built with people using the **Lazy Guy** workflow as the shared basis for the whole site and repository.
+**BU_Team** is a full collaboration project.
+People built it together using the **Lazy Guy** workflow as the shared basis for the whole site and repository.
 
 ![BU_Team mobile home screen showing campus guide cards and bottom navigation](.AI/md/guides/assets/bu-team-home.png)
 
@@ -47,7 +59,12 @@ You do not need to know every framework before starting. You should still review
 | Live website | [bu-team.netlify.app](https://bu-team.netlify.app/) |
 | Source code | [azure-B/BU_Team](https://github.com/azure-B/BU_Team) |
 
-It is a university-oriented web app (React + Vite frontend, Express backend, project docs, and deploy config). Names and IDs on the demo screen are sample data. Use BU_Team as a concrete reference for a Lazy Guy–style team workflow — not as a promise that every agent run will produce the same result.
+It is a university-oriented web app with a React + Vite frontend, an Express backend, project docs, and deploy config.
+
+Names and IDs on the demo screen are sample data.
+
+Use BU_Team as a concrete reference for a Lazy Guy–style team workflow.
+It is not a promise that every agent run will produce the same result.
 
 ---
 
@@ -62,22 +79,25 @@ It is a university-oriented web app (React + Vite frontend, Express backend, pro
 | Error-recovery prompt | Give the agent your error and context through `G-fix.md` |
 | Local preview helper | Start the local app through `H-preview.md` and `scripts/dev-up.mjs` |
 
-These files guide the agent; they do not guarantee that every change will be correct.
+These files guide the agent.
+They do not guarantee that every change will be correct.
 
 ---
 
 ## Quick start
 
-Start by previewing the local starter app. No MCP keys or cloud-service tokens are required for this path.
+Start by previewing the local starter app.
+No MCP keys or cloud-service tokens are required for this path.
 
 ### 1. Prepare your tools
 
 Install:
 
-- Node.js and npm
+- Node.js **18+** (20 LTS recommended) and npm
 - One AI coding tool: Cursor, Codex, Claude Code, or Antigravity
 
-Need app-specific instructions? See the [AI tool setup guide](.AI/docs/13-ide-setup.md).
+Need app-specific instructions?
+See the [AI tool setup guide](.AI/docs/13-ide-setup.md).
 
 ### 2. Get the project
 
@@ -106,18 +126,30 @@ I need API too: yes
 Check whether the servers are already running before starting them.
 ```
 
-The agent should use the preview workflow to install dependencies if needed and start the local servers. You can also run `node scripts/dev-up.mjs` yourself.
+The agent should use the preview workflow to install dependencies if needed and start the local servers.
+
+You can also run this yourself:
+
+```bash
+node scripts/dev-up.mjs
+```
+
+Open a URL only when the helper reports that service as **READY**.
+If a port is taken by another app, `dev-up` fails for that service instead of pretending Lazy Guy is already running.
 
 ### 4. Open the local app
 
-Use the URL returned by your agent. The default addresses are:
+Use the URL returned by your agent.
+The default addresses are:
 
 | Service | Default URL |
 |---------|-------------|
 | Frontend | http://localhost:5173 |
 | Backend health check | http://localhost:3001/api/health |
 
-Local preview does not require MCP keys or a cloud database. If something fails on your machine, use [G-fix](.AI/prompts/G-fix.md) or see [QUICKSTART.md](QUICKSTART.md).
+Local preview does not require MCP keys, a cloud database, or Git pull.
+
+If something fails on your machine, use [G-fix](.AI/prompts/G-fix.md) or see [QUICKSTART.md](QUICKSTART.md).
 
 ### 5. Make your first change
 
@@ -167,7 +199,9 @@ Full error message:
 Explain what changed and how I can check the result.
 ```
 
-Review the proposed changes and check the app again. Some problems may take more than one attempt to resolve.
+Review the proposed changes and check the app again.
+
+Some problems may take more than one attempt to resolve.
 
 ---
 
@@ -199,18 +233,16 @@ Replace the filename with the prompt you need.
 ### Everyday workflow
 
 ```text
-Choose a task prompt
-        ↓
-Describe what you want
-        ↓
-Review the changes
-        ↓
-Preview with H
-        ↓
-If something breaks, use G
+1. Choose a task prompt
+2. Describe what you want
+3. Review the changes
+4. Preview with H
+5. If something breaks, use G
 ```
 
-Database writes and schema changes require your permission under the project rules. Review the proposed changes before approving them.
+Database writes and schema changes require your permission under the project rules.
+
+Review the proposed changes before approving them.
 
 ---
 
@@ -229,7 +261,7 @@ Use the full setup when you need repository tools, a cloud database, or deployme
 
 Start here:
 
-- [Full setup checklist](QUICKSTART.md#b-full-setup--mcp-and-cloud-services)
+- [Full setup checklist](QUICKSTART.md#2-full-setup--mcp-and-cloud-services)
 - [Detailed MCP setup guide](.AI/docs/09-mcp-setup.md)
 
 ### Credential handling
@@ -238,19 +270,22 @@ The setup workflow uses:
 
 ```text
 MCPkeys.json.example
-        ↓ copy and fill locally
+  → copy and fill locally
 MCPkeys.json
-        ↓ register
+  → register
 node scripts/register-mcp.mjs
 ```
 
 After successful registration, the script deletes the temporary root-level `MCPkeys.json`.
 
-This does not remove credentials written to `.cursor/mcp.json` or revoke them in the connected services.
+This does not remove credentials written to `.cursor/mcp.json`.
+It also does not revoke them in the connected services.
 
-Never commit filled credential files or share secrets in prompts, screenshots, or error reports.
+Never commit filled credential files.
+Do not share secrets in prompts, screenshots, or error reports.
 
-The registration script currently targets Cursor's MCP configuration. Other tools may require their own MCP setup.
+The registration script currently targets Cursor's MCP configuration.
+Other tools may require their own MCP setup.
 
 ---
 
@@ -267,7 +302,9 @@ Setup guidance is included for:
 
 Step-by-step: [AI tool setup guide](.AI/docs/13-ide-setup.md).
 
-End-to-end behavior has **not** been verified across every tool, OS, and version. Having setup docs is not the same as a full compatibility test.
+End-to-end behavior has **not** been verified across every tool, OS, and version.
+
+Having setup docs is not the same as a full compatibility test.
 
 ---
 
@@ -282,7 +319,9 @@ The shared instructions ask agents to:
 - Ask for permission before database writes or schema changes
 - Check for existing local servers before starting new ones
 
-These are workflow instructions, not automatic enforcement. Review diffs and verify important behavior yourself.
+These are workflow instructions, not automatic enforcement.
+
+Review diffs and verify important behavior yourself.
 
 | Location | Purpose |
 |----------|---------|
@@ -303,14 +342,16 @@ These are workflow instructions, not automatic enforcement. Review diffs and ver
 ### Requirements
 
 - One supported AI coding tool
-- Node.js and npm for the local frontend and backend
+- Node.js **18+** (20 LTS recommended) and npm for the local frontend and backend
 - Additional accounts or credentials only for the integrations you choose to use
 
 ### Costs
 
 Lazy Guy does not include AI-tool subscriptions, hosting, or cloud-service credits.
 
-Your chosen tools and services may have paid plans, usage limits, or changing free-tier conditions. Check their terms before connecting them.
+Your chosen tools and services may have paid plans, usage limits, or changing free-tier conditions.
+
+Check their terms before connecting them.
 
 ### Limitations
 
@@ -321,7 +362,9 @@ Your chosen tools and services may have paid plans, usage limits, or changing fr
 
 ### License
 
-License selection is still pending. Ask the maintainer before redistributing.
+License selection is still pending.
+
+Ask the maintainer before redistributing.
 
 ---
 
@@ -342,7 +385,8 @@ License selection is still pending. Ask the maintainer before redistributing.
 
 ## Questions and feedback
 
-Found a confusing step or a reproducible problem? Open an issue with:
+Found a confusing step or a reproducible problem?
+Open an issue with:
 
 - Your AI coding tool
 - Your operating system

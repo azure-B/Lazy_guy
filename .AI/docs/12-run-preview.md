@@ -2,6 +2,8 @@
 
 When the user asks to **see the result**, **open the page**, or after a **page/API change**, the agent must run the apps and point to the live URL — not only describe code.
 
+**Preview-only requests do not require Git synchronization** (see `.AI/docs/01-git.md`).
+
 ## Defaults
 
 | App | Folder | Command | URL / port |
@@ -9,7 +11,7 @@ When the user asks to **see the result**, **open the page**, or after a **page/A
 | Front (React / Vite) | `front/` | `npm run dev` | http://localhost:5173 |
 | Back (Express / Node) | `back/` | `npm run dev` | http://localhost:3001 |
 
-Prefer the helper (checks ports, skips if already up):
+Prefer the helper:
 
 ```bash
 node scripts/dev-up.mjs
@@ -22,36 +24,44 @@ node scripts/dev-up.mjs --front
 node scripts/dev-up.mjs --back
 ```
 
+## Helper behavior (`scripts/dev-up.mjs`)
+
+- Starts only services that are **not** already verified as this project.
+- **Back ready** = `GET /api/health` returns JSON with `ok: true` and `service: "lazy-guy-api"`.
+- **Front ready** = HTTP response on `:5173` looks like this app (e.g. title / Vite entry markers).
+- An open port with an **unrecognized** response → that service **fails** (exit non-zero). Do not claim “already running.”
+- Startup logs go under **`.dev-up-logs/`** (gitignored). On failure, the script prints the log path and a short excerpt.
+- Exit **0** only if every **requested** service is ready.
+- Partial success (one ready, one failed) → exit **1**; do not stop a service that already succeeded.
+
+## Supported Node.js
+
+Vite 6 / this stack expect **Node.js 18+** (Node 20 LTS or newer recommended).  
+Check with `node -v`.
+
 ## When to run
 
 | User intent | Agent action |
 |-------------|--------------|
-| “Show me the result / open the page / 화면 보여줘” | Ensure Front (+ Back if API needed) is running → give the URL (and route if any) |
-| After Front page edit | Ensure Front is running → open/tell `http://localhost:5173/[route]` |
-| After Back API edit | Ensure Back is running → give `http://localhost:3001/api/...` smoke tip |
-| Full-stack change | Ensure **both** are running (no duplicates) |
+| “Show me the result / open the page” | Ensure Front (+ Back if API needed) is ready → give the URL |
+| After Front page edit | Ensure Front is ready → give `http://localhost:5173/[route]` |
+| After Back API edit | Ensure Back is ready → give `http://localhost:3001/api/...` tip |
+| Full-stack change | Ensure **both** are ready |
 
-## No duplicate servers (required)
+## No duplicate Lazy Guy servers
 
-1. **Before** starting, check if the port already answers (script does this).
-2. If Front port **5173** is up → do **not** start another Vite.
-3. If Back port **3001** is up → do **not** start another Node.
-4. If already up → say: “Already running at …” and reuse it.
-5. Only install deps (`npm install`) in that folder if `node_modules` is missing.
+1. Run `dev-up` (it probes before starting).
+2. If this project’s Front/Back is already ready → reuse; do not start another copy.
+3. If the port is taken by something else → report failure; do not kill unknown processes; do not silently change ports.
+4. `npm install` runs when `node_modules` is missing; if start still fails, use the log excerpt (missing/broken deps are possible even when the folder exists).
 
 ## After start
 
-- Tell the human the exact link in easy words, e.g.  
-  `Open this in your browser: http://localhost:5173/health`
-- If Simple Browser / preview is available in the IDE, open it; otherwise the localhost URL is enough.
-- Do not block the chat forever waiting on servers — start in background, then confirm ports.
-
-## Windows / Cursor notes
-
-- Use background shell for `npm run dev`.
-- Check the terminals folder or `node scripts/dev-up.mjs` output for “already running” vs “started”.
+- Tell the human only **verified** URLs from a successful `dev-up` (or an already-ready probe).
+- Example: `Open this in your browser: http://localhost:5173/health`
+- If `dev-up` exits non-zero, do not pretend the failed service is up — diagnose (logs / G-fix).
 
 ## Related
 
 - Beginner prompt: `.AI/prompts/H-preview.md`
-- QUICKSTART § “See the result”
+- QUICKSTART preview section

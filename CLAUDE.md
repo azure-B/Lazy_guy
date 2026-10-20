@@ -9,7 +9,7 @@ This file is the **shared entry** for Cursor, Codex, and Antigravity.
 
 ## Boot (Required)
 
-1. `git pull origin main` unless the user already pulled or said to skip
+1. **Git sync (implementation only):** follow `.AI/docs/01-git.md` (state-aware; not unconditional `git pull origin main`). Skip for preview-only / read-only / when the user says offline or skip sync. ZIP/non-Git folders: skip sync.
 2. If the user attached `.AI/prompts/*.md`, follow that prompt first (open every path it lists).
 3. Read, in order:
    - `QUICKSTART.md` (when helping beginners)
@@ -31,7 +31,7 @@ This file is the **shared entry** for Cursor, Codex, and Antigravity.
 4. **front** = React pages/components; HTTP only via `front/src/services/api.js`.
 5. **After back:** update `.AI/md/API/README.md` + `.AI/md/jobs/back/` (+ **`Folder.md`** if structure changed).
 6. **After front:** update `.AI/md/jobs/front/` with APIs used + filenames (+ **`Folder.md`** if needed).
-7. **Git:** pull before work; commit only when asked; message `[YYYY.MM.DD] - work summary`.
+7. **Git:** safe pre-work sync per `.AI/docs/01-git.md`. After a finished/reviewed task, **proactively offer** a short save/upload choice and act only within the selected scope (see `.AI/docs/01-git.md`). Message `[YYYY.MM.DD] - work summary`.
 8. **Host/data:** follow `.AI/docs/05-netlify-supabase.md` and root `env_example` (Render + Netlify + Supabase).
 9. **Stitch UI:** HTML from View code goes in `front/publish/`; shared UI → `front/src/components/common/` (`.AI/docs/03-front.md`).
 10. **Security:** Express CORS allowlists, no SQL/string injection, validation, safe errors (`.AI/docs/02-back.md`).
