@@ -7,19 +7,113 @@ You only: pick your job → attach **one** prompt file → say what you want →
 **Want slower, click-by-click help** (what `@` means, every paste box)?  
 → open [`README.md`](README.md) first.
 
-Example project built this way: [azure-B/BU_Team](https://github.com/azure-B/BU_Team)
+Example project built this way: [azure-B/BU_Team](https://github.com/azure-B/BU_Team) / [site](https://bu-team.netlify.app/)
 
 Questions? benefit5758@naver.com
 
 ---
 
-## 0. Install Cursor once
+### Start here — pick your app
 
-1. Install [Cursor](https://cursor.com/).
-2. Open this folder: `lazy_guy` (File → Open Folder).
-3. Open **Chat** (AI panel).
+| I use… | Jump in this file | Full steps in README |
+|--------|-------------------|----------------------|
+| **Cursor** | [→ Cursor](#app-cursor) | [README → Cursor](README.md#app-cursor) |
+| **Codex** | [→ Codex](#app-codex) | [README → Codex](README.md#app-codex) |
+| **Claude Code** | [→ Claude Code](#app-claude) | [README → Claude Code](README.md#app-claude) |
+| **Antigravity** | [→ Antigravity](#app-antigravity) | [README → Antigravity](README.md#app-antigravity) |
 
-That is enough to start.
+You need **one** app only — not all four.
+
+---
+
+## Jump list
+
+- [0. Install one AI app](#0-install-one-ai-app-pick-yours)
+  - [Cursor](#app-cursor)
+  - [Codex](#app-codex)
+  - [Claude Code](#app-claude)
+  - [Antigravity](#app-antigravity)
+- [1. First day — MCP](#1-first-day-only--connect-tools-mcp)
+- [2. Pick your position](#2-pick-your-position)
+- [3. How to ask the AI](#3-how-to-ask-the-ai-every-time)
+- [4. Daily checklist](#4-your-daily-checklist)
+- [5. Fix errors](#5-if-there-is-an-error-important)
+- [6. What you never need to do](#6-what-you-never-need-to-do)
+- [7. If you get stuck](#7-if-you-get-stuck-not-a-code-error)
+- [8. Did it work?](#8-after-the-ai-finishes--quick-did-it-work)
+- [9. See the result](#9-see-the-result-on-screen-react--node)
+
+---
+
+## 0. Install one AI app (pick yours)
+
+Same folder. Same prompts under `.AI/prompts/`.  
+Only how you open chat / attach a file changes.
+
+Jump: [Cursor](#app-cursor) · [Codex](#app-codex) · [Claude Code](#app-claude) · [Antigravity](#app-antigravity)
+
+---
+
+<a id="app-cursor"></a>
+
+### Cursor
+
+**Full steps:** [README → Cursor](README.md#app-cursor)
+
+1. Install [Cursor](https://cursor.com/).  
+2. **File → Open Folder…** → `lazy_guy`.  
+3. Open **Chat**.  
+4. Type `@` → pick `.AI/prompts/….md` → say what you want → Send.
+
+Done. Go to [§1 First day MCP](#1-first-day-only--connect-tools-mcp).
+
+---
+
+<a id="app-codex"></a>
+
+### Codex
+
+**Full steps:** [README → Codex](README.md#app-codex)
+
+1. Open this folder in **Codex**.  
+2. Start chat / agent (`AGENTS.md` is read automatically).  
+3. Attach with `@.AI/prompts/….md` **or** type:  
+   `Read .AI/prompts/….md and follow it`  
+4. Say what you want → Send.
+
+Done. Go to [§1 First day MCP](#1-first-day-only--connect-tools-mcp).
+
+---
+
+<a id="app-claude"></a>
+
+### Claude Code
+
+**Full steps:** [README → Claude Code](README.md#app-claude)
+
+1. Open a terminal in this folder (`lazy_guy`).  
+2. Start **Claude Code** (it reads `CLAUDE.md` automatically).  
+3. Type: `Read .AI/prompts/….md and follow it`  
+   (or `@` if your UI supports it).  
+4. Say what you want → Send.
+
+Done. Go to [§1 First day MCP](#1-first-day-only--connect-tools-mcp).
+
+---
+
+<a id="app-antigravity"></a>
+
+### Antigravity
+
+**Full steps:** [README → Antigravity](README.md#app-antigravity)
+
+1. Open / link this folder in **Antigravity**.  
+2. Point Rules at `AGENTS.md`.  
+3. Chat → `@.AI/prompts/….md` **or**  
+   `Read .AI/prompts/….md and follow it`  
+4. Say what you want → Send.
+
+Done. Go to [§1 First day MCP](#1-first-day-only--connect-tools-mcp).
 
 ---
 
@@ -29,9 +123,10 @@ Do this **once** per computer.
 
 ### You do
 
-1. In chat, type `@` and choose:
-
-   **`@.AI/prompts/A-mcp.md`**
+1. In chat, attach the MCP prompt:
+   - Cursor / if `@` works: **`@.AI/prompts/A-mcp.md`**
+   - Codex / Claude / Antigravity without `@`: type  
+     **`Read .AI/prompts/A-mcp.md and follow it.`**
 
 2. Send this message:
 
@@ -72,8 +167,9 @@ More detail: [README §3 First day MCP](README.md#3-first-day--connect-tools-mcp
 
 ### Step by step
 
-1. Open Chat.  
-2. Press `@` and attach **exactly one** prompt from the table above.  
+1. Open Chat (Cursor / Codex / Claude Code / Antigravity).  
+2. Attach **exactly one** prompt from the table above  
+   (`@` **or** `Read .AI/prompts/….md and follow it`).  
 3. If Front: also attach your HTML if you have it, e.g. `@front/publish/my-page.html`  
 4. Type what you want in plain English (or edit the `[brackets]` inside the prompt).  
 5. Send.  
@@ -137,10 +233,10 @@ Follow the prompt.
 Copy this into a note and tick as you go:
 
 ```text
-[ ] Open this project in Cursor
-[ ] (First day) @.AI/prompts/A-mcp.md done
+[ ] Open this project in my AI app (Cursor / Codex / Claude / Antigravity)
+[ ] (First day) A-mcp.md done
 [ ] I know my position: Front / Back / Python
-[ ] I attached ONE prompt file
+[ ] I attached ONE prompt file (@ or “Read … and follow it”)
 [ ] I wrote what I want in simple words
 [ ] I sent the message
 [ ] I looked at what the AI changed

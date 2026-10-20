@@ -1,10 +1,11 @@
 # Lazy Guy — for people with no coding background
 
-This project lets you build a website by **talking to an AI** in Cursor.  
+This project lets you build a website by **talking to an AI**.  
+Works with **Cursor**, **Codex**, **Claude Code**, or **Antigravity**.  
 You do **not** need to know programming, React, Node.js, or “how AI works”.
 
 **Short version:** open [`QUICKSTART.md`](QUICKSTART.md) and follow it.  
-**This README:** same ideas, explained more slowly (what to click, what `@` means, what to paste).
+**This README:** same ideas, explained more slowly (which app to install, what `@` means, what to paste).
 
 **Example made with Lazy Guy:** [azure-B/BU_Team](https://github.com/azure-B/BU_Team) / [site](https://bu-team.netlify.app/)
 
@@ -12,37 +13,166 @@ Questions? **benefit5758@naver.com**
 
 ---
 
+### Start here — pick your app
+
+| I use… | This file (full steps) | Short checklist |
+|--------|------------------------|-----------------|
+| **Cursor** | [→ Cursor setup](#app-cursor) | [QUICKSTART → Cursor](QUICKSTART.md#app-cursor) |
+| **Codex** | [→ Codex setup](#app-codex) | [QUICKSTART → Codex](QUICKSTART.md#app-codex) |
+| **Claude Code** | [→ Claude Code setup](#app-claude) | [QUICKSTART → Claude Code](QUICKSTART.md#app-claude) |
+| **Antigravity** | [→ Antigravity setup](#app-antigravity) | [QUICKSTART → Antigravity](QUICKSTART.md#app-antigravity) |
+
+You need **one** app only — not all four.
+
+---
+
 ## Table of contents
 
-1. [What you need on your computer](#1-what-you-need-on-your-computer)
-2. [What is “Chat” and what is `@`?](#2-what-is-chat-and-what-is-)
-3. [First day — connect tools (MCP)](#3-first-day--connect-tools-mcp)
-4. [Every day — pick your job and talk to AI](#4-every-day--pick-your-job-and-talk-to-ai)
-5. [Ready-made messages (copy and paste)](#5-ready-made-messages-copy-and-paste)
-6. [If something breaks](#6-if-something-breaks)
-7. [See the page in the browser](#7-see-the-page-in-the-browser)
-8. [Words you may see (simple meanings)](#8-words-you-may-see-simple-meanings)
-9. [Extra / advanced links](#9-extra--advanced-links)
+**Install (by app)**
+
+- [1. What you need on your computer](#1-what-you-need-on-your-computer)
+  - [Cursor](#app-cursor)
+  - [Codex](#app-codex)
+  - [Claude Code](#app-claude)
+  - [Antigravity](#app-antigravity)
+  - [After any app is open](#after-any-app-is-open)
+
+**Then use the same workflow**
+
+1. [What is “Chat” and what is `@`?](#2-what-is-chat-and-what-is-)
+2. [First day — connect tools (MCP)](#3-first-day--connect-tools-mcp)
+3. [Every day — pick your job and talk to AI](#4-every-day--pick-your-job-and-talk-to-ai)
+4. [Ready-made messages (copy and paste)](#5-ready-made-messages-copy-and-paste)
+5. [If something breaks](#6-if-something-breaks)
+6. [See the page in the browser](#7-see-the-page-in-the-browser)
+7. [Words you may see (simple meanings)](#8-words-you-may-see-simple-meanings)
+8. [Extra / advanced links](#9-extra--advanced-links)
 
 ---
 
 ## 1. What you need on your computer
 
-### Step A — Install Cursor
+You only need **one** AI coding app.  
+Same project folder. Same prompt files under `.AI/prompts/`.  
+Only the **app** and **how you attach a file** change a little.
 
-1. Go to [https://cursor.com/](https://cursor.com/) and install Cursor.  
-2. Open Cursor.  
-3. Click **File → Open Folder…**  
-4. Choose this project folder: **`lazy_guy`**  
-5. Wait until the file list appears on the left.
+Jump: [Cursor](#app-cursor) · [Codex](#app-codex) · [Claude Code](#app-claude) · [Antigravity](#app-antigravity)
 
-### Step B — Open the AI chat
+---
 
-1. Look for **Chat** (or Agent chat) in Cursor.  
-2. Click it so you see a text box where you can type.  
-3. That box is where you will type `@` and your requests.
+<a id="app-cursor"></a>
 
-You are ready. You do **not** need to open a terminal yourself for normal work — the AI can run commands for you.
+### Cursor
+
+**Also:** [QUICKSTART → Cursor](QUICKSTART.md#app-cursor)
+
+1. Install [Cursor](https://cursor.com/).  
+2. Open Cursor → **File → Open Folder…** → choose this project folder (`lazy_guy`).  
+3. Open **Chat** (or Agent chat).  
+4. In the chat box, type `@` and pick a file like `.AI/prompts/A-mcp.md`.  
+5. Type your request under it → Send.
+
+Cursor already reads [`AGENTS.md`](AGENTS.md) and `.cursor/rules/` for you.
+
+**Next:** [§3 First day MCP](#3-first-day--connect-tools-mcp) · [other apps](#1-what-you-need-on-your-computer)
+
+---
+
+<a id="app-codex"></a>
+
+### Codex
+
+**Also:** [QUICKSTART → Codex](QUICKSTART.md#app-codex)
+
+1. Install / open **Codex** (OpenAI Codex app or the Codex workflow you already use).  
+2. Open **this same project folder** as the workspace.  
+3. Make sure [`AGENTS.md`](AGENTS.md) is in the project root (it already is — Codex reads it automatically).  
+4. Start a chat / agent for this repo.  
+5. Attach or mention a prompt file, for example:
+   - Prefer: `@.AI/prompts/B-front.md` if your Codex UI supports `@`
+   - Or type clearly:  
+     `Read .AI/prompts/B-front.md and follow it. I am a beginner.`
+6. Then write what you want in simple words → Send.
+
+**Tip:** If `@` does not work in your Codex UI, always write  
+`Read .AI/prompts/….md and follow it` at the top of your message.
+
+**Next:** [§3 First day MCP](#3-first-day--connect-tools-mcp) · [other apps](#1-what-you-need-on-your-computer)
+
+---
+
+<a id="app-claude"></a>
+
+### Claude Code
+
+**Also:** [QUICKSTART → Claude Code](QUICKSTART.md#app-claude)
+
+1. Install **Claude Code** ([Anthropic Claude Code](https://docs.anthropic.com/en/docs/claude-code) / Claude in the terminal or IDE you use).  
+2. Open a terminal **inside this project folder** (`lazy_guy`), or open the folder in your editor and start Claude Code there.  
+3. Claude Code auto-reads [`CLAUDE.md`](CLAUDE.md) in the project root  
+   (same content as `AGENTS.md` — keep them identical).  
+4. Start Claude Code chat.  
+5. Tell it to use a prompt file, for example:
+
+```text
+Read .AI/prompts/A-mcp.md and follow it. I am a beginner.
+```
+
+Or, if your UI supports file attach / `@`:
+
+```text
+@.AI/prompts/B-front.md
+Build this page. I am a beginner. Follow the prompt.
+```
+
+6. Send.
+
+**Tip:** Optional helper note: [`.claude/README.md`](.claude/README.md).  
+You do **not** need Cursor installed if you only use Claude Code.
+
+**Next:** [§3 First day MCP](#3-first-day--connect-tools-mcp) · [other apps](#1-what-you-need-on-your-computer)
+
+---
+
+<a id="app-antigravity"></a>
+
+### Antigravity
+
+**Also:** [QUICKSTART → Antigravity](QUICKSTART.md#app-antigravity)
+
+1. Open **Antigravity**.  
+2. Open / link **this project folder**.  
+3. In Rules / Instructions, point to:
+   - [`AGENTS.md`](AGENTS.md)
+   - and/or the [`.AI/docs/`](.AI/docs/) folder
+4. Start a chat / agent for the project.  
+5. Attach a prompt file if the UI allows `@`, **or** write:
+
+```text
+Read .AI/prompts/C-back.md and follow it. I am a beginner.
+```
+
+6. Send your request in simple words.
+
+**Tip:** If Antigravity asks for “project instructions”, paste:  
+`Follow AGENTS.md. For each task, read the matching file under .AI/prompts/ (A–H).`
+
+**Next:** [§3 First day MCP](#3-first-day--connect-tools-mcp) · [other apps](#1-what-you-need-on-your-computer)
+
+---
+
+<a id="after-any-app-is-open"></a>
+
+### After any app is open
+
+You are ready when:
+
+1. This folder is open in that app.  
+2. You can see a chat box.  
+3. You can either `@` a file **or** type `Read .AI/prompts/….md and follow it`.
+
+You do **not** need all four apps — **one is enough**.  
+You do **not** need to open a terminal yourself for normal work — the AI can run commands for you.
 
 ---
 
@@ -57,33 +187,42 @@ You write normal sentences. The AI edits files and runs tools for you.
 
 `@` means: **“AI, please read this file too.”**
 
-#### How to use `@` (click by click)
+Works best in **Cursor**.  
+In **Codex / Claude Code / Antigravity**, if there is no `@` button, use this instead:
+
+```text
+Read .AI/prompts/B-front.md and follow it.
+```
+
+(Same idea — just typed as words.)
+
+#### How to use `@` in Cursor (click by click)
 
 1. Click inside the Chat input box.  
 2. Type the `@` key on your keyboard.  
 3. A list of files appears.  
 4. Start typing the name, for example: `A-mcp` or `B-front`.  
 5. Click the file you want (example: `.AI/prompts/B-front.md`).  
-6. You will see a chip/tag in the chat like `@.AI/prompts/B-front.md`.  
+6. You will see a chip/tag like `@.AI/prompts/B-front.md`.  
 7. Under that, type your request in easy English.  
 8. Press **Send** / Enter.
 
-#### Golden rule
+#### Golden rule (all apps)
 
-For normal work, attach **one** prompt file from `.AI/prompts/`.  
+For normal work, use **one** prompt file from `.AI/prompts/`.  
 That prompt already tells the AI which other rules to open.  
-You usually do **not** need to `@` many rule files yourself.
+You usually do **not** need to attach many rule files yourself.
 
-| Situation | What to `@` |
-|-----------|-------------|
-| First day setup | only `@.AI/prompts/A-mcp.md` |
-| Make a screen | `@.AI/prompts/B-front.md` (+ optional HTML file) |
-| Make a server API | `@.AI/prompts/C-back.md` |
-| Change database | `@.AI/prompts/D-db.md` |
-| Python script | `@.AI/prompts/E-python.md` |
-| Screen + API together | `@.AI/prompts/F-fullstack.md` |
-| Error / red message | `@.AI/prompts/G-fix.md` |
-| Show the page now | `@.AI/prompts/H-preview.md` |
+| Situation | File to use (`@` or “Read … and follow it”) |
+|-----------|-----------------------------------------------|
+| First day setup | `.AI/prompts/A-mcp.md` |
+| Make a screen | `.AI/prompts/B-front.md` (+ optional HTML) |
+| Make a server API | `.AI/prompts/C-back.md` |
+| Change database | `.AI/prompts/D-db.md` |
+| Python script | `.AI/prompts/E-python.md` |
+| Screen + API together | `.AI/prompts/F-fullstack.md` |
+| Error / red message | `.AI/prompts/G-fix.md` |
+| Show the page now | `.AI/prompts/H-preview.md` |
 
 ---
 
@@ -95,8 +234,8 @@ If you skip this, some “Back” work is harder, but Front can still start.
 
 ### What you do
 
-1. Open Chat.  
-2. Type `@` and choose:
+1. Open Chat in your app (Cursor / Codex / Claude Code / Antigravity).  
+2. Attach the prompt — either `@` or “Read …”:
 
    **`.AI/prompts/A-mcp.md`**
 
@@ -129,19 +268,19 @@ More detail for helpers: [`.AI/docs/09-mcp-setup.md`](.AI/docs/09-mcp-setup.md)
 
 ### Pick your position
 
-| I am… | I care about… | Attach this |
-|-------|----------------|-------------|
-| **Front** | Buttons, screens, look & feel | `@.AI/prompts/B-front.md` |
-| **Back** | Invisible server / “API” / data | `@.AI/prompts/C-back.md` |
-| **Python** | Scripts / cleaning data files | `@.AI/prompts/E-python.md` |
-| **Both** | One feature = screen + server | `@.AI/prompts/F-fullstack.md` |
+| I am… | I care about… | Use this file |
+|-------|----------------|---------------|
+| **Front** | Buttons, screens, look & feel | `.AI/prompts/B-front.md` |
+| **Back** | Invisible server / “API” / data | `.AI/prompts/C-back.md` |
+| **Python** | Scripts / cleaning data files | `.AI/prompts/E-python.md` |
+| **Both** | One feature = screen + server | `.AI/prompts/F-fullstack.md` |
 
 ### Everyday flow (repeat)
 
 ```
-1. Open Chat
-2. @ one prompt file
-3. (Front) also @ your HTML under front/publish/ if you have it
+1. Open Chat (any of the four apps)
+2. @ one prompt file  — or type: Read .AI/prompts/….md and follow it
+3. (Front) also attach your HTML under front/publish/ if you have it
 4. Write what you want in simple words
 5. Send
 6. Wait — AI creates the “spec”, writes code, updates docs
@@ -163,13 +302,13 @@ You do **not** write a long planning document. The AI creates `.AI/md/specs/...`
 
 ## 5. Ready-made messages (copy and paste)
 
-After you `@` the prompt file, you can paste one of these boxes.  
+After you attach the prompt file (`@` or `Read … and follow it`), paste one of these boxes.  
 Change only the parts in `[ brackets ]`.
 
 ### Front — make a page
 
-First `@` → `.AI/prompts/B-front.md`  
-Also `@` → `front/publish/[your-page].html` if you have it.
+First → `.AI/prompts/B-front.md`  
+Also → `front/publish/[your-page].html` if you have it.
 
 ```text
 Build this page. I am a beginner. Follow the prompt.
@@ -179,7 +318,7 @@ What the page should do: [one short sentence]
 
 ### Back — make an API
 
-First `@` → `.AI/prompts/C-back.md`
+First → `.AI/prompts/C-back.md`
 
 ```text
 I need these APIs. I am a beginner. Follow the prompt.
@@ -189,7 +328,7 @@ I need these APIs. I am a beginner. Follow the prompt.
 
 ### Back — change database (you allow SQL)
 
-First `@` → `.AI/prompts/D-db.md`
+First → `.AI/prompts/D-db.md`
 
 ```text
 I allow SQL write. Follow the prompt.
@@ -198,7 +337,7 @@ I need: [example: notices table for a public list]
 
 ### Python
 
-First `@` → `.AI/prompts/E-python.md`
+First → `.AI/prompts/E-python.md`
 
 ```text
 Make a script that [example: cleans JSON under python/api].
@@ -207,8 +346,8 @@ I am a beginner. Follow the prompt.
 
 ### Front + Back together
 
-First `@` → `.AI/prompts/F-fullstack.md`  
-Optional `@` → your HTML file.
+First → `.AI/prompts/F-fullstack.md`  
+Optional → your HTML file.
 
 ```text
 I want screen + API together. I am a beginner. Follow the prompt.
@@ -223,7 +362,7 @@ DB write: [ask me first / yes / no]
 
 You do **not** need to understand red error text.
 
-1. In Chat, `@` → **`.AI/prompts/G-fix.md`**  
+1. In Chat, attach → **`.AI/prompts/G-fix.md`**  
 2. Paste this (put your error in the middle):
 
 ```text
@@ -250,7 +389,7 @@ Rules for the AI: [`.AI/docs/11-error-fix.md`](.AI/docs/11-error-fix.md)
 
 You do **not** need to know how to “run React” or “run Node” yourself.
 
-1. In Chat, `@` → **`.AI/prompts/H-preview.md`**  
+1. In Chat, attach → **`.AI/prompts/H-preview.md`**  
 2. Paste:
 
 ```text
@@ -277,7 +416,7 @@ Rules: [`.AI/docs/12-run-preview.md`](.AI/docs/12-run-preview.md)
 | Word | Simple meaning |
 |------|----------------|
 | AI / Chat | The helper you type to |
-| `@` | “Please read this file” |
+| `@` | “Please read this file” (or type `Read … and follow it`) |
 | Prompt file | A ready instruction sheet for the AI (in `.AI/prompts/`) |
 | Front | The visible website (buttons, pages) |
 | Back | The invisible server that stores/sends data |
@@ -299,24 +438,25 @@ Use these only when you need more depth. Beginners can ignore most of this list.
 | [`.AI/prompts/`](.AI/prompts/) | All one-file prompts (A–H) |
 | [`.AI/docs/`](.AI/docs/) | Full rules for the AI |
 | [`Folder.md`](Folder.md) | Live folder map |
-| [`AGENTS.md`](AGENTS.md) | What every AI must follow |
+| [`AGENTS.md`](AGENTS.md) | What every AI must follow (Cursor / Codex / Antigravity) |
+| [`CLAUDE.md`](CLAUDE.md) | Same rules for Claude Code |
 | [`env_example`](env_example) | Later: website hosting addresses |
 | [`.AI/docs/09-mcp-setup.md`](.AI/docs/09-mcp-setup.md) | MCP details |
 | [`.AI/docs/11-error-fix.md`](.AI/docs/11-error-fix.md) | Error fix rules |
 | [`.AI/docs/12-run-preview.md`](.AI/docs/12-run-preview.md) | How servers are started |
 
-Same AI rules work in Cursor, Codex, Claude Code, and Antigravity — but this README assumes **Cursor**, which is easiest for beginners.
+Same workflow in all four apps. Cursor is usually easiest for beginners because `@` is built-in.
 
 ---
 
 ### Daily reminder
 
 ```text
-1) @ one prompt
+1) @ one prompt  (or: Read .AI/prompts/….md and follow it)
 2) say what you want
 3) send
-4) broken? → @ G-fix
-5) want to see it? → @ H-preview
+4) broken? → G-fix
+5) want to see it? → H-preview
 ```
 
 That is the whole workflow.
