@@ -3,6 +3,8 @@
 Markdown-first **React + Express** project.  
 Same rules on **Cursor**, **Codex**, **Claude Code**, and **Antigravity**.
 
+**Example built with Lazy Guy:** [azure-B/BU_Team](https://github.com/azure-B/BU_Team) — a team web project (React + Express) developed using this guide.
+
 Agent rules: [`.AI/docs/`](.AI/docs/) · Specs/API/jobs: [`.AI/md/`](.AI/md/) · Live tree: [`Folder.md`](Folder.md)
 
 ---
