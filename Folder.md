@@ -10,6 +10,7 @@ lazy_guy/
 ├── Folder.md                 ← this file (live tree)
 ├── QUICKSTART.md             ← beginners: Quick try + Full setup
 ├── README.md                 ← first-visit hub (value, example, limits)
+├── LICENSE                   ← BSD Zero Clause License (0BSD)
 ├── AGENTS.md                 ← shared IDE entry (= CLAUDE.md)
 ├── CLAUDE.md
 ├── env_example               ← Render / Netlify / Supabase URL map

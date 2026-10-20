@@ -27,7 +27,16 @@ const READY_MS = 25000;
 const LOG_DIR = path.join(root, '.dev-up-logs');
 
 const BACK_SERVICE_ID = 'lazy-guy-api';
-const FRONT_MARKERS = ['Lazy Guy', '/src/main.jsx', 'lazy-guy-front'];
+
+/** Lightweight Front family check: dedicated meta in front/index.html (not a security boundary). */
+function hasLazyGuyFrontMeta(html) {
+  const metas = String(html || '').match(/<meta\b[^>]*>/gi) || [];
+  return metas.some((tag) => {
+    const hasName = /\bname\s*=\s*(['"])lazy-guy-app\1/i.test(tag);
+    const hasContent = /\bcontent\s*=\s*(['"])frontend\1/i.test(tag);
+    return hasName && hasContent;
+  });
+}
 
 function ensureLogDir() {
   fs.mkdirSync(LOG_DIR, { recursive: true });
@@ -129,15 +138,14 @@ async function probeFront() {
   if (!res.ok) {
     return { state: 'pending', detail: `port ${FRONT_PORT} open; waiting for HTTP` };
   }
-  if (res.status < 200 || res.status >= 500) {
+  if (res.status !== 200) {
     return {
       state: 'unknown',
-      detail: `port ${FRONT_PORT} returned HTTP ${res.status}`,
+      detail: `port ${FRONT_PORT} returned HTTP ${res.status} (need 200 + lazy-guy-app meta)`,
     };
   }
-  const body = res.body || '';
-  if (FRONT_MARKERS.some((m) => body.includes(m))) {
-    return { state: 'ours', detail: 'HTML looks like Lazy Guy Front' };
+  if (hasLazyGuyFrontMeta(res.body)) {
+    return { state: 'ours', detail: 'lazy-guy-app frontend meta found' };
   }
   return {
     state: 'unknown',

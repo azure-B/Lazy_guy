@@ -2,6 +2,7 @@
   "name": "lazy-guy-front",
   "version": "1.0.0",
   "private": true,
+  "license": "0BSD",
   "type": "module",
   "scripts": {
     "dev": "vite",

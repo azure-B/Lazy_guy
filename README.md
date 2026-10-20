@@ -360,11 +360,18 @@ Check their terms before connecting them.
 - Tool-specific setup and behavior can differ.
 - Local preview success does not imply production readiness.
 
-### License
+---
 
-License selection is still pending.
+## License
 
-Ask the maintainer before redistributing.
+Original code and documentation in this repository are licensed
+under the BSD Zero Clause License (0BSD).
+
+You may use, modify, and redistribute them, including commercially,
+without an attribution or notice-retention requirement.
+
+Third-party components remain subject to their own licenses.
+See [LICENSE](LICENSE) for details.
 
 ---
 

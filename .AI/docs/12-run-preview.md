@@ -28,7 +28,7 @@ node scripts/dev-up.mjs --back
 
 - Starts only services that are **not** already verified as this project.
 - **Back ready** = `GET /api/health` returns JSON with `ok: true` and `service: "lazy-guy-api"`.
-- **Front ready** = HTTP response on `:5173` looks like this app (e.g. title / Vite entry markers).
+- **Front ready** = HTTP **200** on `:5173` and HTML includes `<meta name="lazy-guy-app" content="frontend" />` (attribute order/quotes may vary).
 - An open port with an **unrecognized** response → that service **fails** (exit non-zero). Do not claim “already running.”
 - Startup logs go under **`.dev-up-logs/`** (gitignored). On failure, the script prints the log path and a short excerpt.
 - Exit **0** only if every **requested** service is ready.

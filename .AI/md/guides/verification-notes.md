@@ -53,5 +53,4 @@ They support reproducible installs for the real Front/Back apps (not temp folder
 
 ## Pending maintainer decisions (not README content)
 
-- Choose and add a license when ready (do not invent one).
 - Optional: commit `front/package-lock.json` and `back/package-lock.json`.
