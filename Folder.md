@@ -8,8 +8,8 @@ Rules: `.AI/docs/04-md-documentation.md` · `.AI/docs/06-uniformity.md`
 ```
 lazy_guy/
 ├── Folder.md                 ← this file (live tree)
-├── QUICKSTART.md             ← absolute beginners start here
-├── README.md                 ← non-major friendly full guide (+ @ how-to)
+├── QUICKSTART.md             ← beginners: Quick try + Full setup
+├── README.md                 ← first-visit hub (value, example, limits)
 ├── AGENTS.md                 ← shared IDE entry (= CLAUDE.md)
 ├── CLAUDE.md
 ├── env_example               ← Render / Netlify / Supabase URL map
@@ -17,7 +17,7 @@ lazy_guy/
 ├── .gitignore
 ├── .AI/                      ← all agent + project markdown
 │   ├── README.md
-│   ├── prompts/              ← one-file chat prompts (A–F)
+│   ├── prompts/              ← one-file chat prompts (A–H)
 │   │   ├── README.md
 │   │   ├── A-mcp.md
 │   │   ├── B-front.md
@@ -40,17 +40,25 @@ lazy_guy/
 │   │   ├── 09-mcp-setup.md
 │   │   ├── 10-db-erd-supabase.md
 │   │   ├── 11-error-fix.md
-│   │   └── 12-run-preview.md
-│   └── md/                   ← specs, API catalog, jobs, ERD
+│   │   ├── 12-run-preview.md
+│   │   └── 13-ide-setup.md
+│   └── md/                   ← specs, API catalog, jobs, ERD, guides
 │       ├── db/
-│       │   └── erd.md        ← living ERD (AI may adapt)
+│       │   └── erd.md
 │       ├── API/
 │       │   └── README.md
+│       ├── guides/
+│       │   ├── verification-notes.md
+│       │   └── assets/
+│       │       └── bu-team-home.png
 │       ├── specs/
 │       │   ├── README.md
 │       │   ├── _TEMPLATE.md
-│       │   └── health-check.md
+│       │   ├── health-check.md
+│       │   └── readme-first-visit.md
 │       └── jobs/
+│           ├── docs/
+│           │   └── 2026-10-20_readme-first-visit.md
 │           ├── back/
 │           │   └── 2026-10-20_scaffold.md
 │           └── front/
@@ -76,7 +84,7 @@ lazy_guy/
 │   ├── netlify.toml
 │   ├── .env.example
 │   ├── publish/
-│   │   └── README.md         ← Stitch HTML exports go here
+│   │   └── README.md
 │   └── src/
 │       ├── main.jsx
 │       ├── App.jsx
@@ -94,7 +102,8 @@ lazy_guy/
 ├── python/
 │   └── api/
 ├── scripts/
-│   └── register-mcp.mjs
+│   ├── register-mcp.mjs
+│   └── dev-up.mjs
 ├── .cursor/
 │   ├── mcp.json.example
 │   └── rules/

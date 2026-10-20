@@ -58,7 +58,9 @@ This file is the **shared entry** for Cursor, Codex, and Antigravity.
 | DB / ERD / SQL test | `.AI/docs/10-db-erd-supabase.md` |
 | Error one-pass fix | `.AI/docs/11-error-fix.md` |
 | Run / show preview | `.AI/docs/12-run-preview.md` |
+| IDE / app setup | `.AI/docs/13-ide-setup.md` |
 | Beginner hub | `QUICKSTART.md` |
+| First-visit hub | `README.md` |
 | One-file prompts | `.AI/prompts/` (includes `G-fix.md`, `H-preview.md`) |
 
 ## Install / How to Dev? / MCP

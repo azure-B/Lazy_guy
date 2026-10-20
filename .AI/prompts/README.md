@@ -1,6 +1,7 @@
 # One-file AI prompts
 
-Absolute beginners: attach **one** of these files in chat (`@`), then type your wish in plain words.
+Absolute beginners: start with root [`QUICKSTART.md`](../../QUICKSTART.md) (**Quick try** first).  
+Then attach **one** of these files in chat (`@` or `Read … and follow it`), and type your wish in plain words.
 
 | File | Who | Job |
 |------|-----|-----|

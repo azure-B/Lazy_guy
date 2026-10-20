@@ -44,8 +44,9 @@ Supported IDEs: **Cursor**, **Codex**, **Claude Code**, **Antigravity**.
 | Feature specs | `.AI/md/specs/` | Humans write; agents implement |
 | API catalog | `.AI/md/API/README.md` | Agents after back changes |
 | Folder tree | `Folder.md` | Agents on structure change |
-| Job logs | `.AI/md/jobs/back/`, `.AI/md/jobs/front/` | Agents after work |
+| Job logs | `.AI/md/jobs/back/`, `.AI/md/jobs/front/`, `.AI/md/jobs/docs/` | Agents after work |
 | Agent rules | `docs/*.md` | Maintainers only |
+| IDE setup (humans) | `docs/13-ide-setup.md` | Maintainers |
 | Env wiring | `env_example`, `back/.env.example`, `front/.env.example` | Maintainers / deploy |
 
 ## Mandatory Read (Before Any Edit)
@@ -65,7 +66,7 @@ Supported IDEs: **Cursor**, **Codex**, **Claude Code**, **Antigravity**.
   ??.AI/md/API + .AI/md/jobs + Folder.md
 ```
 
-Human-facing steps: README **How to Dev?**
+Human-facing steps: root `README.md` (first visit) + `QUICKSTART.md` (Quick try / Full setup)
 
 ## Git Sync (Required)
 
@@ -86,3 +87,7 @@ Skip only if the user already pulled or asked to skip. On failure, stop and expl
 | Render / Netlify / Supabase | `docs/05-netlify-supabase.md` |
 | Cross-IDE uniformity | `docs/06-uniformity.md` |
 | How AI applies MD | `docs/07-ai-md-workflow.md` |
+| MCP setup | `docs/09-mcp-setup.md` |
+| Error fix | `docs/11-error-fix.md` |
+| Run / preview | `docs/12-run-preview.md` |
+| IDE / app setup | `docs/13-ide-setup.md` |

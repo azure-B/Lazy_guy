@@ -1,462 +1,355 @@
-# Lazy Guy — for people with no coding background
+# Lazy Guy
 
-This project lets you build a website by **talking to an AI**.  
-Works with **Cursor**, **Codex**, **Claude Code**, or **Antigravity**.  
-You do **not** need to know programming, React, Node.js, or “how AI works”.
+### A beginner-first starter kit for AI coding agents.
 
-**Short version:** open [`QUICKSTART.md`](QUICKSTART.md) and follow it.  
-**This README:** same ideas, explained more slowly (which app to install, what `@` means, what to paste).
+Build, fix, and preview your web app with one task prompt at a time.
 
-**Example made with Lazy Guy:** [azure-B/BU_Team](https://github.com/azure-B/BU_Team) / [site](https://bu-team.netlify.app/)
+Lazy Guy gives your AI coding tool a shared set of project rules, task prompts, and documentation workflows — so you spend less time figuring out what to ask next.
 
-Questions? **benefit5758@naver.com**
+Works with Cursor, Codex, Claude Code, and Antigravity. See [tool support](#tool-support) for setup details and limitations.
 
----
-
-### Start here — pick your app
-
-| I use… | This file (full steps) | Short checklist |
-|--------|------------------------|-----------------|
-| **Cursor** | [→ Cursor setup](#app-cursor) | [QUICKSTART → Cursor](QUICKSTART.md#app-cursor) |
-| **Codex** | [→ Codex setup](#app-codex) | [QUICKSTART → Codex](QUICKSTART.md#app-codex) |
-| **Claude Code** | [→ Claude Code setup](#app-claude) | [QUICKSTART → Claude Code](QUICKSTART.md#app-claude) |
-| **Antigravity** | [→ Antigravity setup](#app-antigravity) | [QUICKSTART → Antigravity](QUICKSTART.md#app-antigravity) |
-
-You need **one** app only — not all four.
+[Get started](#quick-start) · [Example project](#example-project) · [Task prompts](#task-prompts) · [Full setup](#connect-services-optional)
 
 ---
 
-## Table of contents
+## Why Lazy Guy?
 
-**Install (by app)**
+Opening an AI coding tool is easy. Knowing what to do next is harder.
 
-- [1. What you need on your computer](#1-what-you-need-on-your-computer)
-  - [Cursor](#app-cursor)
-  - [Codex](#app-codex)
-  - [Claude Code](#app-claude)
-  - [Antigravity](#app-antigravity)
-  - [After any app is open](#after-any-app-is-open)
+- What should I ask to build a page?
+- How do I connect the frontend and backend?
+- What should I paste when something breaks?
+- How do I run the project and see the result?
+- How do teammates keep the same project conventions?
 
-**Then use the same workflow**
+Lazy Guy provides a starting point for each of these tasks.
 
-1. [What is “Chat” and what is `@`?](#2-what-is-chat-and-what-is-)
-2. [First day — connect tools (MCP)](#3-first-day--connect-tools-mcp)
-3. [Every day — pick your job and talk to AI](#4-every-day--pick-your-job-and-talk-to-ai)
-4. [Ready-made messages (copy and paste)](#5-ready-made-messages-copy-and-paste)
-5. [If something breaks](#6-if-something-breaks)
-6. [See the page in the browser](#7-see-the-page-in-the-browser)
-7. [Words you may see (simple meanings)](#8-words-you-may-see-simple-meanings)
-8. [Extra / advanced links](#9-extra--advanced-links)
+It is not a new AI model or a replacement for your coding tool. It is a reusable project structure that helps you work with one.
 
----
+## Who is it for?
 
-## 1. What you need on your computer
+- Beginners who can describe an idea but do not know how to turn it into development tasks
+- People trying AI coding tools for the first time
+- Small teams that want shared rules, feature specs, and work notes
 
-You only need **one** AI coding app.  
-Same project folder. Same prompt files under `.AI/prompts/`.  
-Only the **app** and **how you attach a file** change a little.
-
-Jump: [Cursor](#app-cursor) · [Codex](#app-codex) · [Claude Code](#app-claude) · [Antigravity](#app-antigravity)
+You do not need to know every framework before starting. You should still review generated code, check the result, and approve sensitive changes.
 
 ---
 
-<a id="app-cursor"></a>
+## Example project
 
-### Cursor
+**BU_Team** is a full collaboration project built with people using the **Lazy Guy** workflow as the shared basis for the whole site and repository.
 
-**Also:** [QUICKSTART → Cursor](QUICKSTART.md#app-cursor)
+![BU_Team mobile home screen showing campus guide cards and bottom navigation](.AI/md/guides/assets/bu-team-home.png)
 
-1. Install [Cursor](https://cursor.com/).  
-2. Open Cursor → **File → Open Folder…** → choose this project folder (`lazy_guy`).  
-3. Open **Chat** (or Agent chat).  
-4. In the chat box, type `@` and pick a file like `.AI/prompts/A-mcp.md`.  
-5. Type your request under it → Send.
+| Explore | Link |
+|---------|------|
+| Live website | [bu-team.netlify.app](https://bu-team.netlify.app/) |
+| Source code | [azure-B/BU_Team](https://github.com/azure-B/BU_Team) |
 
-Cursor already reads [`AGENTS.md`](AGENTS.md) and `.cursor/rules/` for you.
-
-**Next:** [§3 First day MCP](#3-first-day--connect-tools-mcp) · [other apps](#1-what-you-need-on-your-computer)
+It is a university-oriented web app (React + Vite frontend, Express backend, project docs, and deploy config). Names and IDs on the demo screen are sample data. Use BU_Team as a concrete reference for a Lazy Guy–style team workflow — not as a promise that every agent run will produce the same result.
 
 ---
 
-<a id="app-codex"></a>
+## What is included?
 
-### Codex
+| Part | What it helps with |
+|------|--------------------|
+| Task prompts A–H | Start setup, frontend, backend, database, Python, full-stack, debugging, or preview tasks |
+| Shared agent instructions | Give supported tools a common entry point through `AGENTS.md` and `CLAUDE.md` |
+| Project rules | Define conventions for code structure, documentation, and development workflows |
+| Feature specs and work notes | Keep a record of what is being built and what changed |
+| Error-recovery prompt | Give the agent your error and context through `G-fix.md` |
+| Local preview helper | Start the local app through `H-preview.md` and `scripts/dev-up.mjs` |
 
-**Also:** [QUICKSTART → Codex](QUICKSTART.md#app-codex)
-
-1. Install / open **Codex** (OpenAI Codex app or the Codex workflow you already use).  
-2. Open **this same project folder** as the workspace.  
-3. Make sure [`AGENTS.md`](AGENTS.md) is in the project root (it already is — Codex reads it automatically).  
-4. Start a chat / agent for this repo.  
-5. Attach or mention a prompt file, for example:
-   - Prefer: `@.AI/prompts/B-front.md` if your Codex UI supports `@`
-   - Or type clearly:  
-     `Read .AI/prompts/B-front.md and follow it. I am a beginner.`
-6. Then write what you want in simple words → Send.
-
-**Tip:** If `@` does not work in your Codex UI, always write  
-`Read .AI/prompts/….md and follow it` at the top of your message.
-
-**Next:** [§3 First day MCP](#3-first-day--connect-tools-mcp) · [other apps](#1-what-you-need-on-your-computer)
+These files guide the agent; they do not guarantee that every change will be correct.
 
 ---
 
-<a id="app-claude"></a>
+## Quick start
 
-### Claude Code
+Start by previewing the local starter app. No MCP keys or cloud-service tokens are required for this path.
 
-**Also:** [QUICKSTART → Claude Code](QUICKSTART.md#app-claude)
+### 1. Prepare your tools
 
-1. Install **Claude Code** ([Anthropic Claude Code](https://docs.anthropic.com/en/docs/claude-code) / Claude in the terminal or IDE you use).  
-2. Open a terminal **inside this project folder** (`lazy_guy`), or open the folder in your editor and start Claude Code there.  
-3. Claude Code auto-reads [`CLAUDE.md`](CLAUDE.md) in the project root  
-   (same content as `AGENTS.md` — keep them identical).  
-4. Start Claude Code chat.  
-5. Tell it to use a prompt file, for example:
+Install:
 
-```text
-Read .AI/prompts/A-mcp.md and follow it. I am a beginner.
+- Node.js and npm
+- One AI coding tool: Cursor, Codex, Claude Code, or Antigravity
+
+Need app-specific instructions? See the [AI tool setup guide](.AI/docs/13-ide-setup.md).
+
+### 2. Get the project
+
+Clone the repository:
+
+```bash
+git clone https://github.com/azure-B/Lazy_guy.git
+cd Lazy_guy
 ```
 
-Or, if your UI supports file attach / `@`:
+Or download the ZIP from GitHub, extract it, and open the extracted folder in your AI coding tool.
+
+### 3. Ask the agent to preview it
+
+Attach [`.AI/prompts/H-preview.md`](.AI/prompts/H-preview.md), or paste:
 
 ```text
-@.AI/prompts/B-front.md
-Build this page. I am a beginner. Follow the prompt.
+Read .AI/prompts/H-preview.md and follow it.
+
+Show me the starter app in the browser.
+I am a beginner.
+
+Page route: /
+I need API too: yes
+
+Check whether the servers are already running before starting them.
 ```
 
-6. Send.
+The agent should use the preview workflow to install dependencies if needed and start the local servers. You can also run `node scripts/dev-up.mjs` yourself.
 
-**Tip:** Optional helper note: [`.claude/README.md`](.claude/README.md).  
-You do **not** need Cursor installed if you only use Claude Code.
+### 4. Open the local app
 
-**Next:** [§3 First day MCP](#3-first-day--connect-tools-mcp) · [other apps](#1-what-you-need-on-your-computer)
+Use the URL returned by your agent. The default addresses are:
 
----
+| Service | Default URL |
+|---------|-------------|
+| Frontend | http://localhost:5173 |
+| Backend health check | http://localhost:3001/api/health |
 
-<a id="app-antigravity"></a>
+Local preview does not require MCP keys or a cloud database. If something fails on your machine, use [G-fix](.AI/prompts/G-fix.md) or see [QUICKSTART.md](QUICKSTART.md).
 
-### Antigravity
+### 5. Make your first change
 
-**Also:** [QUICKSTART → Antigravity](QUICKSTART.md#app-antigravity)
-
-1. Open **Antigravity**.  
-2. Open / link **this project folder**.  
-3. In Rules / Instructions, point to:
-   - [`AGENTS.md`](AGENTS.md)
-   - and/or the [`.AI/docs/`](.AI/docs/) folder
-4. Start a chat / agent for the project.  
-5. Attach a prompt file if the UI allows `@`, **or** write:
+Attach [`.AI/prompts/B-front.md`](.AI/prompts/B-front.md), or paste:
 
 ```text
-Read .AI/prompts/C-back.md and follow it. I am a beginner.
+Read .AI/prompts/B-front.md and follow it.
+
+I am a beginner.
+Create a simple homepage for a university club.
+
+Include:
+- A welcome section
+- A list of upcoming events
+- A contact section
+
+Use placeholder content.
+Do not connect a database or external service yet.
 ```
 
-6. Send your request in simple words.
+Then use `H-preview.md` again to see the result.
 
-**Tip:** If Antigravity asks for “project instructions”, paste:  
-`Follow AGENTS.md. For each task, read the matching file under .AI/prompts/ (A–H).`
-
-**Next:** [§3 First day MCP](#3-first-day--connect-tools-mcp) · [other apps](#1-what-you-need-on-your-computer)
+For the complete walkthrough, see [QUICKSTART.md](QUICKSTART.md).
 
 ---
 
-<a id="after-any-app-is-open"></a>
+## If something breaks
 
-### After any app is open
+You do not need to diagnose the error before asking for help.
 
-You are ready when:
+Attach [`.AI/prompts/G-fix.md`](.AI/prompts/G-fix.md), or paste:
 
-1. This folder is open in that app.  
-2. You can see a chat box.  
-3. You can either `@` a file **or** type `Read .AI/prompts/….md and follow it`.
+```text
+Read .AI/prompts/G-fix.md and follow it.
 
-You do **not** need all four apps — **one is enough**.  
-You do **not** need to open a terminal yourself for normal work — the AI can run commands for you.
+I am a beginner. Help me fix this problem.
+
+What I was trying to do:
+[Describe the action.]
+
+What happened:
+[Describe what you saw.]
+
+Full error message:
+[Paste the error here. Remove tokens, passwords, and other secrets.]
+
+Explain what changed and how I can check the result.
+```
+
+Review the proposed changes and check the app again. Some problems may take more than one attempt to resolve.
 
 ---
 
-## 2. What is “Chat” and what is `@`?
+## Task prompts
 
-### Chat
+Choose one prompt for the task you want to do.
 
-Chat = the place you **talk to the AI**.  
-You write normal sentences. The AI edits files and runs tools for you.
+| Prompt | Use it for |
+|--------|------------|
+| [A — MCP setup](.AI/prompts/A-mcp.md) | Connecting supported external tools |
+| [B — Frontend](.AI/prompts/B-front.md) | Building or changing React screens |
+| [C — Backend](.AI/prompts/C-back.md) | Building or changing Express APIs |
+| [D — Database](.AI/prompts/D-db.md) | Database changes and ERD updates |
+| [E — Python](.AI/prompts/E-python.md) | Python scripts and data-processing tasks |
+| [F — Full stack](.AI/prompts/F-fullstack.md) | Features that need both a screen and an API |
+| [G — Fix](.AI/prompts/G-fix.md) | Debugging errors and unexpected behavior |
+| [H — Preview](.AI/prompts/H-preview.md) | Running the app and viewing the result |
 
-### `@` (very important)
+If your tool supports file mentions, attach the prompt with `@`.
 
-`@` means: **“AI, please read this file too.”**
-
-Works best in **Cursor**.  
-In **Codex / Claude Code / Antigravity**, if there is no `@` button, use this instead:
+Otherwise, start your request with:
 
 ```text
 Read .AI/prompts/B-front.md and follow it.
 ```
 
-(Same idea — just typed as words.)
+Replace the filename with the prompt you need.
 
-#### How to use `@` in Cursor (click by click)
+### Everyday workflow
 
-1. Click inside the Chat input box.  
-2. Type the `@` key on your keyboard.  
-3. A list of files appears.  
-4. Start typing the name, for example: `A-mcp` or `B-front`.  
-5. Click the file you want (example: `.AI/prompts/B-front.md`).  
-6. You will see a chip/tag like `@.AI/prompts/B-front.md`.  
-7. Under that, type your request in easy English.  
-8. Press **Send** / Enter.
+```text
+Choose a task prompt
+        ↓
+Describe what you want
+        ↓
+Review the changes
+        ↓
+Preview with H
+        ↓
+If something breaks, use G
+```
 
-#### Golden rule (all apps)
-
-For normal work, use **one** prompt file from `.AI/prompts/`.  
-That prompt already tells the AI which other rules to open.  
-You usually do **not** need to attach many rule files yourself.
-
-| Situation | File to use (`@` or “Read … and follow it”) |
-|-----------|-----------------------------------------------|
-| First day setup | `.AI/prompts/A-mcp.md` |
-| Make a screen | `.AI/prompts/B-front.md` (+ optional HTML) |
-| Make a server API | `.AI/prompts/C-back.md` |
-| Change database | `.AI/prompts/D-db.md` |
-| Python script | `.AI/prompts/E-python.md` |
-| Screen + API together | `.AI/prompts/F-fullstack.md` |
-| Error / red message | `.AI/prompts/G-fix.md` |
-| Show the page now | `.AI/prompts/H-preview.md` |
+Database writes and schema changes require your permission under the project rules. Review the proposed changes before approving them.
 
 ---
 
-## 3. First day — connect tools (MCP)
+## Connect services (optional)
 
-Do this **once** on each computer.  
-MCP = letting the AI use GitHub / Supabase / Netlify / Render helpers.  
-If you skip this, some “Back” work is harder, but Front can still start.
+You can explore the local starter before connecting cloud services.
 
-### What you do
+Use the full setup when you need repository tools, a cloud database, or deployment integrations.
 
-1. Open Chat in your app (Cursor / Codex / Claude Code / Antigravity).  
-2. Attach the prompt — either `@` or “Read …”:
+| Service | Purpose | Required for local preview? |
+|---------|---------|-----------------------------|
+| GitHub MCP | Repository-related tools for the agent | No |
+| Supabase | Cloud database and related integrations | No |
+| Netlify | Frontend hosting and deployment tools | No |
+| Render | Backend hosting and deployment tools | No |
 
-   **`.AI/prompts/A-mcp.md`**
+Start here:
 
-3. Paste this message and send:
+- [Full setup checklist](QUICKSTART.md#b-full-setup--mcp-and-cloud-services)
+- [Detailed MCP setup guide](.AI/docs/09-mcp-setup.md)
+
+### Credential handling
+
+The setup workflow uses:
 
 ```text
-Help me finish MCP setup. I am a beginner. Follow the prompt file.
+MCPkeys.json.example
+        ↓ copy and fill locally
+MCPkeys.json
+        ↓ register
+node scripts/register-mcp.mjs
 ```
 
-4. The AI will tell you, in easy words, to:
-   - copy `MCPkeys.json.example` → make `MCPkeys.json`
-   - paste your secret keys into that file
-   - run: `node scripts/register-mcp.mjs`
-5. After success, `MCPkeys.json` is **deleted on purpose** (so secrets are not left in the folder). That is good.
+After successful registration, the script deletes the temporary root-level `MCPkeys.json`.
 
-### Where to get keys (if the AI asks)
+This does not remove credentials written to `.cursor/mcp.json` or revoke them in the connected services.
 
-- GitHub: https://github.com/settings/tokens  
-- Supabase: https://supabase.com/dashboard  
-- Netlify: https://app.netlify.com/user/applications#personal-access-tokens  
-- Render: https://dashboard.render.com/u/settings#api-keys  
+Never commit filled credential files or share secrets in prompts, screenshots, or error reports.
 
-More detail for helpers: [`.AI/docs/09-mcp-setup.md`](.AI/docs/09-mcp-setup.md)
-
-**Never** upload or commit a filled `MCPkeys.json` to the internet.
+The registration script currently targets Cursor's MCP configuration. Other tools may require their own MCP setup.
 
 ---
 
-## 4. Every day — pick your job and talk to AI
+## Tool support
 
-### Pick your position
+Setup guidance is included for:
 
-| I am… | I care about… | Use this file |
-|-------|----------------|---------------|
-| **Front** | Buttons, screens, look & feel | `.AI/prompts/B-front.md` |
-| **Back** | Invisible server / “API” / data | `.AI/prompts/C-back.md` |
-| **Python** | Scripts / cleaning data files | `.AI/prompts/E-python.md` |
-| **Both** | One feature = screen + server | `.AI/prompts/F-fullstack.md` |
-
-### Everyday flow (repeat)
-
-```
-1. Open Chat (any of the four apps)
-2. @ one prompt file  — or type: Read .AI/prompts/….md and follow it
-3. (Front) also attach your HTML under front/publish/ if you have it
-4. Write what you want in simple words
-5. Send
-6. Wait — AI creates the “spec”, writes code, updates docs
-7. If you want to see the page → use §7
-8. If it breaks → use §6
-```
-
-You do **not** write a long planning document. The AI creates `.AI/md/specs/...` for you.
-
-### Optional: design in Stitch first (Front)
-
-1. Design the screen in **Stitch**.  
-2. Open **View code**.  
-3. Save the HTML into the folder `front/publish/`  
-   Example name: `front/publish/home.html`  
-4. Then use the Front message in §5.
-
----
-
-## 5. Ready-made messages (copy and paste)
-
-After you attach the prompt file (`@` or `Read … and follow it`), paste one of these boxes.  
-Change only the parts in `[ brackets ]`.
-
-### Front — make a page
-
-First → `.AI/prompts/B-front.md`  
-Also → `front/publish/[your-page].html` if you have it.
-
-```text
-Build this page. I am a beginner. Follow the prompt.
-HTML: front/publish/[your-page].html
-What the page should do: [one short sentence]
-```
-
-### Back — make an API
-
-First → `.AI/prompts/C-back.md`
-
-```text
-I need these APIs. I am a beginner. Follow the prompt.
-- [example: GET /api/notices — list]
-- [example: GET /api/notices/:id — one item]
-```
-
-### Back — change database (you allow SQL)
-
-First → `.AI/prompts/D-db.md`
-
-```text
-I allow SQL write. Follow the prompt.
-I need: [example: notices table for a public list]
-```
-
-### Python
-
-First → `.AI/prompts/E-python.md`
-
-```text
-Make a script that [example: cleans JSON under python/api].
-I am a beginner. Follow the prompt.
-```
-
-### Front + Back together
-
-First → `.AI/prompts/F-fullstack.md`  
-Optional → your HTML file.
-
-```text
-I want screen + API together. I am a beginner. Follow the prompt.
-Feature: [example: public notices list]
-HTML if any: front/publish/[page].html
-DB write: [ask me first / yes / no]
-```
-
----
-
-## 6. If something breaks
-
-You do **not** need to understand red error text.
-
-1. In Chat, attach → **`.AI/prompts/G-fix.md`**  
-2. Paste this (put your error in the middle):
-
-```text
-Fix everything in one pass. I am a beginner.
-
-Error / what I see:
-[PASTE THE FULL ERROR HERE]
-
-What I was trying to do:
-[one short sentence]
-
-Follow G-fix.md. Explain in easy words.
-```
-
-3. Send.  
-4. The AI should fix things in **one go**, then tell you how to check.  
-5. If it still fails, the AI must give you **another ready paste box** — you should not invent a new prompt yourself.
-
-Rules for the AI: [`.AI/docs/11-error-fix.md`](.AI/docs/11-error-fix.md)
-
----
-
-## 7. See the page in the browser
-
-You do **not** need to know how to “run React” or “run Node” yourself.
-
-1. In Chat, attach → **`.AI/prompts/H-preview.md`**  
-2. Paste:
-
-```text
-Show me the result in the browser. I am a beginner.
-Page route: [/ or /health]
-I need API too: [yes / no]
-Follow the prompt. Do not start servers twice if they are already running.
-```
-
-3. The AI runs a helper (`node scripts/dev-up.mjs`) that:
-   - starts the screen app if needed (usually http://localhost:5173)
-   - starts the server if needed (usually http://localhost:3001)
-   - **skips** starting if it is already running (no duplicates)
-4. Open the link the AI gives you in your browser (Chrome, Edge, etc.).
-
-After a page change, you can send the same H-preview request again — the AI should just show the page, not start two copies.
-
-Rules: [`.AI/docs/12-run-preview.md`](.AI/docs/12-run-preview.md)
-
----
-
-## 8. Words you may see (simple meanings)
-
-| Word | Simple meaning |
+| Tool | Where to start |
 |------|----------------|
-| AI / Chat | The helper you type to |
-| `@` | “Please read this file” (or type `Read … and follow it`) |
-| Prompt file | A ready instruction sheet for the AI (in `.AI/prompts/`) |
-| Front | The visible website (buttons, pages) |
-| Back | The invisible server that stores/sends data |
-| API | A doorway the screen uses to ask the server for data |
-| Spec | A short plan file — **AI writes it for you** |
-| MCP | Extra tools (GitHub, Supabase, …) for the AI |
-| Localhost | Your own computer’s website address (like http://localhost:5173) |
-| Folder.md | A map of project folders — AI should keep it updated |
+| Cursor | `AGENTS.md`, `.cursor/rules/` |
+| Codex | `AGENTS.md` |
+| Claude Code | `CLAUDE.md` |
+| Antigravity | Point project rules at `AGENTS.md` |
+
+Step-by-step: [AI tool setup guide](.AI/docs/13-ide-setup.md).
+
+End-to-end behavior has **not** been verified across every tool, OS, and version. Having setup docs is not the same as a full compatibility test.
 
 ---
 
-## 9. Extra / advanced links
+## How the project stays organized
 
-Use these only when you need more depth. Beginners can ignore most of this list.
+The shared instructions ask agents to:
 
-| Link | What it is |
-|------|------------|
-| [`QUICKSTART.md`](QUICKSTART.md) | Shorter checklist version of this guide |
-| [`.AI/prompts/`](.AI/prompts/) | All one-file prompts (A–H) |
-| [`.AI/docs/`](.AI/docs/) | Full rules for the AI |
-| [`Folder.md`](Folder.md) | Live folder map |
-| [`AGENTS.md`](AGENTS.md) | What every AI must follow (Cursor / Codex / Antigravity) |
-| [`CLAUDE.md`](CLAUDE.md) | Same rules for Claude Code |
-| [`env_example`](env_example) | Later: website hosting addresses |
-| [`.AI/docs/09-mcp-setup.md`](.AI/docs/09-mcp-setup.md) | MCP details |
-| [`.AI/docs/11-error-fix.md`](.AI/docs/11-error-fix.md) | Error fix rules |
-| [`.AI/docs/12-run-preview.md`](.AI/docs/12-run-preview.md) | How servers are started |
+- Create or update a feature spec before implementation
+- Follow the frontend and backend structure
+- Update API documentation and work notes after relevant changes
+- Keep the folder map current when files are added, moved, or removed
+- Ask for permission before database writes or schema changes
+- Check for existing local servers before starting new ones
 
-Same workflow in all four apps. Cursor is usually easiest for beginners because `@` is built-in.
+These are workflow instructions, not automatic enforcement. Review diffs and verify important behavior yourself.
+
+| Location | Purpose |
+|----------|---------|
+| `AGENTS.md` / `CLAUDE.md` | Agent entry points |
+| `.AI/prompts/` | Task prompts A–H |
+| `.AI/docs/` | Detailed project rules |
+| `.AI/md/` | Feature specs, API notes, and work logs |
+| `front/` | Frontend project |
+| `back/` | Backend project |
+| `python/` | Python workspace |
+| `scripts/` | Setup and development helpers |
+| `Folder.md` | Project folder map |
 
 ---
 
-### Daily reminder
+## Requirements and limitations
 
-```text
-1) @ one prompt  (or: Read .AI/prompts/….md and follow it)
-2) say what you want
-3) send
-4) broken? → G-fix
-5) want to see it? → H-preview
-```
+### Requirements
 
-That is the whole workflow.
+- One supported AI coding tool
+- Node.js and npm for the local frontend and backend
+- Additional accounts or credentials only for the integrations you choose to use
+
+### Costs
+
+Lazy Guy does not include AI-tool subscriptions, hosting, or cloud-service credits.
+
+Your chosen tools and services may have paid plans, usage limits, or changing free-tier conditions. Check their terms before connecting them.
+
+### Limitations
+
+- AI agents can misunderstand instructions or generate incorrect code.
+- Project rules do not replace testing, security review, or backups.
+- Tool-specific setup and behavior can differ.
+- Local preview success does not imply production readiness.
+
+### License
+
+License selection is still pending. Ask the maintainer before redistributing.
+
+---
+
+## Documentation
+
+| Guide | Purpose |
+|-------|---------|
+| [Quickstart](QUICKSTART.md) | Start locally and learn the daily workflow |
+| [AI tool setup](.AI/docs/13-ide-setup.md) | Configure your chosen coding tool |
+| [Task prompts](.AI/prompts/) | Choose a prompt for your task |
+| [Project rules](.AI/docs/) | Read the detailed development conventions |
+| [MCP setup](.AI/docs/09-mcp-setup.md) | Connect external tools |
+| [Agent instructions](AGENTS.md) | Read the shared agent entry point |
+| [Folder map](Folder.md) | Explore the repository structure |
+| [Environment example](env_example) | Review hosting and environment configuration |
+
+---
+
+## Questions and feedback
+
+Found a confusing step or a reproducible problem? Open an issue with:
+
+- Your AI coding tool
+- Your operating system
+- What you tried
+- What happened
+- Relevant error output, with secrets removed
+
+You can also contact the maintainer at [benefit5758@naver.com](mailto:benefit5758@naver.com).
+
+If Lazy Guy helps you get started, consider giving it a star.

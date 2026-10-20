@@ -2,7 +2,7 @@
 
 **Intended flow:** paste tokens into `MCPkeys.json` → run one command → MCP is written into `.cursor/mcp.json` and connected (after Cursor reload). Then `MCPkeys.json` is deleted.
 
-Human walkthrough: [README §1](../../README.md#1-mcp-registration-mcpkeysjson)
+Human walkthrough: [`QUICKSTART.md` Full setup](../../QUICKSTART.md#b-full-setup--mcp-and-cloud-services) · [`README.md` Full setup](../../README.md#full-setup--connect-services-when-you-need-them)
 
 ## Mental model
 

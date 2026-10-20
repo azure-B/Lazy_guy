@@ -1,227 +1,191 @@
-# QUICKSTART — short path (no coding knowledge needed)
+# QUICKSTART — short path
 
-You do **not** need to know how to code.  
-You do **not** need to write a “spec”.  
-You only: pick your job → attach **one** prompt file → say what you want → send.
+You do **not** need to invent a long plan.  
+Pick **one** prompt → say what you want → send → preview or fix.
 
-**Want slower, click-by-click help** (what `@` means, every paste box)?  
-→ open [`README.md`](README.md) first.
+**Slower hub (value, example, limits):** [`README.md`](README.md)
 
-Example project built this way: [azure-B/BU_Team](https://github.com/azure-B/BU_Team) / [site](https://bu-team.netlify.app/)
+Example (Lazy Guy collaboration): [BU_Team source](https://github.com/azure-B/BU_Team) · [live site](https://bu-team.netlify.app/)
 
 Questions? benefit5758@naver.com
 
 ---
 
-### Start here — pick your app
+## Two paths
 
-| I use… | Jump in this file | Full steps in README |
-|--------|-------------------|----------------------|
-| **Cursor** | [→ Cursor](#app-cursor) | [README → Cursor](README.md#app-cursor) |
-| **Codex** | [→ Codex](#app-codex) | [README → Codex](README.md#app-codex) |
-| **Claude Code** | [→ Claude Code](#app-claude) | [README → Claude Code](README.md#app-claude) |
-| **Antigravity** | [→ Antigravity](#app-antigravity) | [README → Antigravity](README.md#app-antigravity) |
+| Path | Goal | MCP / cloud tokens? |
+|------|------|---------------------|
+| **[A. Quick try](#a-quick-try--see-the-local-app-first)** | See the local app first | **No** |
+| **[B. Full setup](#b-full-setup--mcp-and-cloud-services)** | Connect GitHub / Supabase / deploy helpers | **Yes**, when you need them |
 
-You need **one** app only — not all four.
+Do **A** first unless you already know you need cloud tools today.
 
 ---
 
 ## Jump list
 
-- [0. Install one AI app](#0-install-one-ai-app-pick-yours)
-  - [Cursor](#app-cursor)
-  - [Codex](#app-codex)
-  - [Claude Code](#app-claude)
-  - [Antigravity](#app-antigravity)
-- [1. First day — MCP](#1-first-day-only--connect-tools-mcp)
+- [0. Install one AI app](#0-install-one-ai-app)
+- [A. Quick try](#a-quick-try--see-the-local-app-first)
+- [B. Full setup](#b-full-setup--mcp-and-cloud-services)
 - [2. Pick your position](#2-pick-your-position)
-- [3. How to ask the AI](#3-how-to-ask-the-ai-every-time)
+- [3. How to ask](#3-how-to-ask-the-ai-every-time)
 - [4. Daily checklist](#4-your-daily-checklist)
-- [5. Fix errors](#5-if-there-is-an-error-important)
+- [5. Fix errors (G-fix)](#5-if-there-is-an-error-important)
 - [6. What you never need to do](#6-what-you-never-need-to-do)
-- [7. If you get stuck](#7-if-you-get-stuck-not-a-code-error)
+- [7. Stuck?](#7-if-you-get-stuck-not-a-code-error)
 - [8. Did it work?](#8-after-the-ai-finishes--quick-did-it-work)
-- [9. See the result](#9-see-the-result-on-screen-react--node)
+- [9. Preview (H-preview)](#9-see-the-result-on-screen-react--node)
 
 ---
 
-## 0. Install one AI app (pick yours)
+## 0. Install one AI app
 
-Same folder. Same prompts under `.AI/prompts/`.  
-Only how you open chat / attach a file changes.
+You need **one** app — not all four.  
+Same folder. Same prompts under `.AI/prompts/`.
 
-Jump: [Cursor](#app-cursor) · [Codex](#app-codex) · [Claude Code](#app-claude) · [Antigravity](#app-antigravity)
+| App | Short start | Full steps |
+|-----|-------------|------------|
+| **Cursor** | Open folder → Chat → `@.AI/prompts/….md` | [ide setup → Cursor](.AI/docs/13-ide-setup.md#cursor) |
+| **Codex** | Open folder → chat → `@` or `Read .AI/prompts/….md and follow it` | [ide setup → Codex](.AI/docs/13-ide-setup.md#codex) |
+| **Claude Code** | Run in this folder (reads `CLAUDE.md`) → `Read .AI/prompts/….md and follow it` | [ide setup → Claude Code](.AI/docs/13-ide-setup.md#claude-code) |
+| **Antigravity** | Open folder → rules → `AGENTS.md` → `@` or `Read …` | [ide setup → Antigravity](.AI/docs/13-ide-setup.md#antigravity) |
 
----
-
-<a id="app-cursor"></a>
-
-### Cursor
-
-**Full steps:** [README → Cursor](README.md#app-cursor)
-
-1. Install [Cursor](https://cursor.com/).  
-2. **File → Open Folder…** → `lazy_guy`.  
-3. Open **Chat**.  
-4. Type `@` → pick `.AI/prompts/….md` → say what you want → Send.
-
-Done. Go to [§1 First day MCP](#1-first-day-only--connect-tools-mcp).
+Also need **Node.js** on your computer for local preview (`npm` / `node scripts/dev-up.mjs`).
 
 ---
 
-<a id="app-codex"></a>
+## A. Quick try — see the local app first
 
-### Codex
+**Goal:** open the starter page without creating MCP tokens or a database.
 
-**Full steps:** [README → Codex](README.md#app-codex)
+### You need
 
-1. Open this folder in **Codex**.  
-2. Start chat / agent (`AGENTS.md` is read automatically).  
-3. Attach with `@.AI/prompts/….md` **or** type:  
-   `Read .AI/prompts/….md and follow it`  
-4. Say what you want → Send.
+- This project folder open in your AI app  
+- Node.js installed  
+- Prompt [`.AI/prompts/H-preview.md`](.AI/prompts/H-preview.md)
 
-Done. Go to [§1 First day MCP](#1-first-day-only--connect-tools-mcp).
+### Steps
 
----
+1. Open chat.  
+2. Attach H-preview (`@` **or** type `Read .AI/prompts/H-preview.md and follow it`).  
+3. Paste:
 
-<a id="app-claude"></a>
+```text
+Show me the result in the browser. I am a beginner.
+Page route: /
+I need API too: yes
+Follow the prompt. Do not start servers twice if they are already running.
+```
 
-### Claude Code
+4. Open the link the AI gives you (usually `http://localhost:5173`).  
+5. Optional API check: `http://localhost:3001/api/health`
 
-**Full steps:** [README → Claude Code](README.md#app-claude)
+### Manual fallback (if you prefer the terminal)
 
-1. Open a terminal in this folder (`lazy_guy`).  
-2. Start **Claude Code** (it reads `CLAUDE.md` automatically).  
-3. Type: `Read .AI/prompts/….md and follow it`  
-   (or `@` if your UI supports it).  
-4. Say what you want → Send.
+```bash
+node scripts/dev-up.mjs
+```
 
-Done. Go to [§1 First day MCP](#1-first-day-only--connect-tools-mcp).
+Then open `http://localhost:5173`.
 
----
+The helper installs dependencies when `node_modules` is missing. Local preview does not need MCP keys or a cloud database.
 
-<a id="app-antigravity"></a>
+### If Quick try fails
 
-### Antigravity
+Go to [§5 G-fix](#5-if-there-is-an-error-important).
 
-**Full steps:** [README → Antigravity](README.md#app-antigravity)
-
-1. Open / link this folder in **Antigravity**.  
-2. Point Rules at `AGENTS.md`.  
-3. Chat → `@.AI/prompts/….md` **or**  
-   `Read .AI/prompts/….md and follow it`  
-4. Say what you want → Send.
-
-Done. Go to [§1 First day MCP](#1-first-day-only--connect-tools-mcp).
+When you later need GitHub/DB/deploy helpers → [B. Full setup](#b-full-setup--mcp-and-cloud-services).
 
 ---
 
-## 1. First day only — connect tools (MCP)
+## B. Full setup — MCP and cloud services
 
-Do this **once** per computer.
+**MCP** = letting your AI coding tool use helper connections (GitHub, Supabase, Netlify, Render).  
+Useful for Back / deploy / database work. **Not required** to see the local home page.
 
-### You do
+### Required vs optional
 
-1. In chat, attach the MCP prompt:
-   - Cursor / if `@` works: **`@.AI/prompts/A-mcp.md`**
-   - Codex / Claude / Antigravity without `@`: type  
-     **`Read .AI/prompts/A-mcp.md and follow it.`**
+| Item | For Quick try | For cloud / MCP helpers |
+|------|---------------|-------------------------|
+| AI coding app + Node.js | Required | Required |
+| GitHub token in MCP | No | Typical yes |
+| Supabase project | No | When you use real DB |
+| Netlify / Render tokens | No | When you use those deploy helpers |
 
-2. Send this message:
+### What you do
+
+1. Attach [`.AI/prompts/A-mcp.md`](.AI/prompts/A-mcp.md)  
+   (or `Read .AI/prompts/A-mcp.md and follow it`).  
+2. Send:
 
 ```text
 Help me finish MCP setup. I am a beginner. Follow the prompt file.
 ```
 
-3. Do what the AI tells you (copy `MCPkeys.json.example` → `MCPkeys.json`, paste tokens, run `node scripts/register-mcp.mjs`).
+3. Follow the AI: copy `MCPkeys.json.example` → `MCPkeys.json`, paste tokens, run:
 
-### Done when
+```bash
+node scripts/register-mcp.mjs
+```
 
-- AI says MCP is ready.
-- `MCPkeys.json` is gone after a successful register (that is normal and good).
+4. On **success**, the script updates `.cursor/mcp.json` and **deletes the temporary root `MCPkeys.json`**.  
+   That only removes the temp paste file in the project folder. It does **not** mean all credentials everywhere are gone (cloud accounts and `.cursor/mcp.json` may still hold configured values).  
+5. Reload MCP / restart the app if asked.
 
-Token links (if AI asks you to get keys):
+### Token links (if the AI asks)
 
 - GitHub: https://github.com/settings/tokens  
 - Supabase: https://supabase.com/dashboard  
 - Netlify: https://app.netlify.com/user/applications#personal-access-tokens  
 - Render: https://dashboard.render.com/u/settings#api-keys  
 
-More detail: [README §3 First day MCP](README.md#3-first-day--connect-tools-mcp)
+Details: [`.AI/docs/09-mcp-setup.md`](.AI/docs/09-mcp-setup.md)
+
+**Never** commit a filled `MCPkeys.json` or secrets in `.env`.
 
 ---
 
 ## 2. Pick your position
 
-| I am… | I make… | Use this prompt only |
-|-------|---------|----------------------|
-| **Front** | Screens / buttons / pages | `@.AI/prompts/B-front.md` |
-| **Back** | Server / API / database | `@.AI/prompts/C-back.md` (and `@.AI/prompts/D-db.md` if tables change) |
-| **Python** | Scripts / data files | `@.AI/prompts/E-python.md` |
-| **Both Front+Back** | One full feature | `@.AI/prompts/F-fullstack.md` |
+| I am… | I make… | Use this prompt |
+|-------|---------|-----------------|
+| **Front** | Screens / buttons / pages | `.AI/prompts/B-front.md` |
+| **Back** | Server / API / database | `.AI/prompts/C-back.md` (+ `.AI/prompts/D-db.md` if tables change) |
+| **Python** | Scripts / data files | `.AI/prompts/E-python.md` |
+| **Both** | One full feature | `.AI/prompts/F-fullstack.md` |
 
 ---
 
 ## 3. How to ask the AI (every time)
 
-### Step by step
-
-1. Open Chat (Cursor / Codex / Claude Code / Antigravity).  
-2. Attach **exactly one** prompt from the table above  
-   (`@` **or** `Read .AI/prompts/….md and follow it`).  
-3. If Front: also attach your HTML if you have it, e.g. `@front/publish/my-page.html`  
-4. Type what you want in plain English (or edit the `[brackets]` inside the prompt).  
-5. Send.  
-6. Wait. The AI will:
-   - create the spec for you  
-   - write the code  
-   - update docs (`jobs`, API, `Folder.md`, ERD when needed)
+1. Open Chat.  
+2. Attach **exactly one** prompt (`@` or `Read .AI/prompts/….md and follow it`).  
+3. If Front: also attach HTML under `front/publish/` when you have it.  
+4. Type what you want in plain English.  
+5. Send. The AI should create/update a spec under `.AI/md/specs/`, write code, and update docs when needed.  
+6. Preview → [§9](#9-see-the-result-on-screen-react--node). Errors → [§5](#5-if-there-is-an-error-important).
 
 ### Example messages
 
 **Front**
 
 ```text
-@.AI/prompts/B-front.md
-@front/publish/home.html
-
+Read .AI/prompts/B-front.md and follow it.
 Build this page. I am a beginner. Follow the prompt.
 ```
 
 **Back**
 
 ```text
-@.AI/prompts/C-back.md
-
+Read .AI/prompts/C-back.md and follow it.
 I need GET /api/notices (list) and GET /api/notices/:id (one item).
 I am a beginner. Follow the prompt.
-```
-
-**Back + database**
-
-```text
-@.AI/prompts/D-db.md
-
-I allow SQL write. I need a notices table for public list + detail.
-Follow the prompt.
-```
-
-**Python**
-
-```text
-@.AI/prompts/E-python.md
-
-Make a script that cleans JSON under python/api.
-Follow the prompt.
 ```
 
 **Full feature**
 
 ```text
-@.AI/prompts/F-fullstack.md
-@front/publish/notices.html
-
+Read .AI/prompts/F-fullstack.md and follow it.
 Public notices list screen + list API. Ask me before DB write.
 Follow the prompt.
 ```
@@ -230,39 +194,27 @@ Follow the prompt.
 
 ## 4. Your daily checklist
 
-Copy this into a note and tick as you go:
-
 ```text
-[ ] Open this project in my AI app (Cursor / Codex / Claude / Antigravity)
-[ ] (First day) A-mcp.md done
+[ ] Open this project in my AI app
+[ ] Quick try done once (see the local page)
+[ ] (When needed) Full setup / A-mcp done
 [ ] I know my position: Front / Back / Python
-[ ] I attached ONE prompt file (@ or “Read … and follow it”)
+[ ] I attached ONE prompt file
 [ ] I wrote what I want in simple words
 [ ] I sent the message
-[ ] I looked at what the AI changed
-[ ] If something is wrong → go to §5 (Fix errors)
+[ ] I reviewed what the AI changed
+[ ] If something is wrong → §5 (G-fix)
+[ ] Want to see it → §9 (H-preview)
 ```
 
 ---
 
 ## 5. If there is an error (important)
 
-You do **not** need to understand the red text.  
-You only need to **command the AI** like this.
-
-### Do this every time something breaks
-
-1. In chat, attach:
-
-   **`@.AI/prompts/G-fix.md`**
-
-2. Copy **all** of the box below.  
-3. Replace the `[ brackets ]` with your error and your goal.  
-4. Send.
+1. Attach **`.AI/prompts/G-fix.md`**.  
+2. Paste:
 
 ```text
-@.AI/prompts/G-fix.md
-
 Fix everything in one pass. I am a beginner.
 
 Error / what I see:
@@ -271,36 +223,20 @@ Error / what I see:
 What I was trying to do:
 [one short sentence]
 
-Follow G-fix.md. Auto-create/update the spec if needed. Update jobs/API/Folder.md. Explain in easy words.
+Follow G-fix.md. Explain in easy words.
 ```
 
-### What the AI must do
+3. The AI should fix in one pass when possible, tell you how to check, and give another paste box if it still fails.
 
-- Fix the **whole** problem in one answer when possible.  
-- Tell you how to check it worked.  
-- At the end, give you **another copy-paste box** in case it still fails  
-  (so you never have to invent a prompt yourself).
-
-Rule for agents: [`.AI/docs/11-error-fix.md`](.AI/docs/11-error-fix.md)
-
-### Also OK (short)
-
-If you are mid-chat with the same AI, you can send:
-
-```text
-Something broke. Use @.AI/prompts/G-fix.md rules.
-Fix everything in one pass. Here is the error:
-
-[PASTE ERROR]
-```
+Rules: [`.AI/docs/11-error-fix.md`](.AI/docs/11-error-fix.md)
 
 ---
 
 ## 6. What you never need to do
 
 - Write a long spec by yourself (AI auto-creates it).  
-- Attach 10 rule files by hand (the prompt tells the AI what to open).  
-- Invent your own “fix prompt” — always use **§5** above.  
+- Attach ten rule files by hand (the prompt tells the AI what to open).  
+- Invent your own “fix prompt” — use **§5**.  
 - Memorize Express or React.  
 - Commit secrets (`MCPkeys.json`, `.env`).
 
@@ -308,8 +244,8 @@ Fix everything in one pass. Here is the error:
 
 ## 7. If you get stuck (not a code error)
 
-1. Attach `@.AI/prompts/G-fix.md` if there is any error text.  
-2. Or reply: `I am stuck. Explain like I am new. What should I click next?`  
+1. Use G-fix if there is error text.  
+2. Or ask: `I am stuck. Explain like I am new. What should I click next?`  
 3. Or open [`README.md`](README.md).  
 4. Or email: **benefit5758@naver.com**
 
@@ -319,45 +255,30 @@ Fix everything in one pass. Here is the error:
 
 | Position | Check |
 |----------|--------|
-| Front | Open the page in the app / browser preview |
-| Back | Call the API path the AI named (or ask AI: “How do I test this API?”) |
-| Python | Ask AI: “How do I run this script?” then run it |
-| DB | Ask AI: “Show me the tables you created” |
+| Front | Open the page (H-preview) |
+| Back | Call the API path the AI named |
+| Python | Ask: “How do I run this script?” |
+| DB | Ask: “Show me the tables you created” |
 
-Always keep [`Folder.md`](Folder.md) correct — the AI should update it when files move.
+Keep [`Folder.md`](Folder.md) accurate — the AI should update it when files move.
 
 ---
 
 ## 9. See the result on screen (React + Node)
 
-You do **not** need to know how to start servers.  
-Ask the AI to show the page.
-
-### Do this
-
-1. Attach:
-
-   **`@.AI/prompts/H-preview.md`**
-
+1. Attach **`.AI/prompts/H-preview.md`**.  
 2. Paste:
 
 ```text
-@.AI/prompts/H-preview.md
-
 Show me the result in the browser. I am a beginner.
 Page route: [/ or /health]
 I need API too: [yes / no]
 Follow the prompt. Do not start servers twice if they are already running.
 ```
 
-3. Open the link the AI gives you (usually `http://localhost:5173/...`).
+3. Open the link (usually `http://localhost:5173/...`).
 
-### What the AI must do
-
-- Run Front (React) and Back (Node) if needed.  
-- **Check if already running** — if yes, reuse; do **not** start duplicates.  
-- Prefer: `node scripts/dev-up.mjs`  
-- After a page edit, also show/open the page the same way.
+The helper `node scripts/dev-up.mjs` starts Front (`5173`) and/or Back (`3001`) only if not already running.
 
 Rules: [`.AI/docs/12-run-preview.md`](.AI/docs/12-run-preview.md)
 
@@ -365,7 +286,7 @@ Rules: [`.AI/docs/12-run-preview.md`](.AI/docs/12-run-preview.md)
 
 **Remember**
 
-- Errors → `@.AI/prompts/G-fix.md` (see **§5**)  
-- See the page → `@.AI/prompts/H-preview.md` (see **§9**)  
-
-Daily work stays in this file. Deeper links: [`README.md`](README.md).
+- First visit → **Quick try (A)**  
+- Cloud helpers → **Full setup (B)**  
+- Errors → **G-fix**  
+- See the page → **H-preview**
