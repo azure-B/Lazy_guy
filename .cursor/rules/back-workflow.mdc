@@ -1,0 +1,11 @@
+---
+description: back ??pointer to docs/02-back.md (MVC + security)
+globs: back/**
+alwaysApply: false
+---
+
+Follow **`docs/02-back.md`**, **`docs/07-ai-md-workflow.md`**, and **`docs/05-netlify-supabase.md`**.
+
+- Layering: `routes/` ??`controller/` ??`models/`
+- Security: CORS allowlist, no SQL concatenation, validate inputs, safe errors
+- Then update `.AI/md/API/README.md` + `.AI/md/jobs/back/`

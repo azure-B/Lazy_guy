@@ -1,0 +1,7 @@
+---
+description: md ??pointer to docs/04-md-documentation.md
+globs: .AI/md/**
+alwaysApply: false
+---
+
+When editing `.AI/md/**`, follow **`docs/04-md-documentation.md`**. All md must be **English**. Feature specs live in `.AI/md/specs/`.

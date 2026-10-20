@@ -1,0 +1,12 @@
+---
+description: front ??pointer to docs/03-front.md (Stitch / publish / common)
+globs: front/**
+alwaysApply: false
+---
+
+Follow **`docs/03-front.md`** and **`docs/07-ai-md-workflow.md`**.
+
+- Stitch HTML ??`front/publish/` then convert to React
+- Shared UI ??`front/src/components/common/`
+- HTTP only via `front/src/services/api.js`
+- Then `.AI/md/jobs/front/` (APIs + filenames). No `.AI/md/API` edits on front-only work.

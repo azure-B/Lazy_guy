@@ -1,0 +1,47 @@
+# =============================================================================
+# Project env map — copy values into back/.env and front/.env (never commit .env)
+# Align Render (API) ↔ Netlify (web) ↔ Supabase (DB/Auth) using the URLs below.
+# =============================================================================
+
+# --- Local defaults (dev) ----------------------------------------------------
+LOCAL_FRONT_URL=http://localhost:5173
+LOCAL_API_URL=http://localhost:3001
+LOCAL_API_BASE=http://localhost:3001/api
+
+# --- Supabase (Dashboard → Project Settings → API) ---------------------------
+# Project URL
+SUPABASE_URL=https://YOUR_PROJECT_REF.supabase.co
+# anon / public (safe for browser; also used by front as VITE_SUPABASE_ANON_KEY)
+SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
+# service_role (server only — back/.env ONLY, never Netlify / never VITE_*)
+SUPABASE_SERVICE_ROLE_KEY=YOUR_SUPABASE_SERVICE_ROLE_KEY
+# Optional: Dashboard → Authentication → URL configuration
+SUPABASE_AUTH_REDIRECT_URL=https://YOUR_SITE.netlify.app
+
+# --- Render (Express API host) -----------------------------------------------
+# Dashboard → your Web Service → Settings
+RENDER_SERVICE_NAME=lazy-guy-api
+RENDER_API_URL=https://YOUR_SERVICE.onrender.com
+RENDER_API_BASE=https://YOUR_SERVICE.onrender.com/api
+# Render dashboard / docs (bookmarks)
+RENDER_DASHBOARD_URL=https://dashboard.render.com/
+RENDER_DOCS_URL=https://render.com/docs
+
+# --- Netlify (React / Vite host) ---------------------------------------------
+# Site → Domain management / Site configuration
+NETLIFY_SITE_NAME=lazy-guy
+NETLIFY_SITE_URL=https://YOUR_SITE.netlify.app
+# Netlify dashboard / docs (bookmarks)
+NETLIFY_DASHBOARD_URL=https://app.netlify.com/
+NETLIFY_DOCS_URL=https://docs.netlify.com/
+
+# --- Cross-service wiring (fill after each platform is live) -----------------
+# Front (Netlify) must call the Render API:
+#   front VITE_API_BASE_URL = RENDER_API_BASE
+# Back (Render) must allow the Netlify origin:
+#   back CORS_ORIGIN = NETLIFY_SITE_URL
+# Both share the same Supabase project:
+#   back SUPABASE_URL           = SUPABASE_URL
+#   front VITE_SUPABASE_URL     = SUPABASE_URL
+#   front VITE_SUPABASE_ANON_KEY = SUPABASE_ANON_KEY
+#   back SUPABASE_SERVICE_ROLE_KEY = SUPABASE_SERVICE_ROLE_KEY  (Render env only)

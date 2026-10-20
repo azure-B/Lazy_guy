@@ -1,0 +1,19 @@
+.layout__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.layout__header nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.layout__main {
+  padding: 1.5rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
