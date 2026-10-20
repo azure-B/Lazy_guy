@@ -43,11 +43,14 @@ Fill `env_example`, then mirror into platform dashboards:
 3. Back validates JWTs when protecting routes (or trusts RLS when the spec says so)
 4. Specs under `.AI/md/specs/` must say which path is used
 
-## Schema Changes
+## Schema / ERD / SQL testing
 
-- Describe tables/columns in the feature spec **Data** section first
+Full rules: **`.AI/docs/10-db-erd-supabase.md`** · Living ERD: **`.AI/md/db/erd.md`**
+
+- Spec **Data** + living ERD first; AI may **adapt the ERD** for better results
 - Prefer SQL migrations under `back/supabase/migrations/` when added
-- Do not silently invent tables not listed in the spec
+- Supabase MCP: use SQL to inspect/adjust/test after **user permission** for write/DDL
+- Keep Express models in sync with the ERD; no ad-hoc tables without updating `.AI/md/db/erd.md`
 
 ## Bookmark Links (also in `env_example`)
 

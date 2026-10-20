@@ -31,6 +31,9 @@ Who uses it and why.
 |-------|---------|-------|
 | | | |
 
+- Living ERD: `.AI/md/db/erd.md` (AI may improve ERD for best results — `.AI/docs/10-db-erd-supabase.md`)
+- SQL testing via Supabase MCP: permission required for write/DDL — ask the user first
+
 ## Out of Scope
 
 What not to build in this task.

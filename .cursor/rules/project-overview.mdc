@@ -1,23 +1,26 @@
 ---
-description: Shared boot ??pointers to docs SSOT (all IDEs)
+description: Shared boot — pointers to .AI/docs SSOT (all IDEs)
 alwaysApply: true
 ---
 
-# Cursor ??follow shared agent entry
+# Cursor — follow shared agent entry
 
 1. Obey **`AGENTS.md`** (same text as `CLAUDE.md`).
-2. Before any edit, read: `docs/00-overview.md` ??`docs/06-uniformity.md` ??`docs/07-ai-md-workflow.md` ??area docs.
-3. Do **not** treat this `.mdc` as a second rulebook. Full rules live only in `docs/`.
+2. Before any edit, read: `.AI/docs/00-overview.md` → `.AI/docs/06-uniformity.md` → `.AI/docs/07-ai-md-workflow.md` → area docs.
+3. Do **not** treat this `.mdc` as a second rulebook. Full rules live only in `.AI/docs/`.
 
 ## Mandatory Invariants
 
 1. English only for `.AI/md/**` and commit summaries.
-2. Feature work starts from `.AI/md/specs/<feature>.md`.
-3. back = `routes/` ??`controller/` ??`models/`.
+2. Auto-spec: humans may request **dev only**; agent always creates/updates `.AI/md/specs/<feature>.md` before coding.
+3. back = `routes/` → `controller/` → `models/`.
 4. front HTTP only via `front/src/services/api.js`.
 5. After back: `.AI/md/API/README.md` + `.AI/md/jobs/back/` (+ `Folder.md` if needed).
 6. After front: `.AI/md/jobs/front/` with APIs + filenames (+ `Folder.md` if needed).
 7. Git: pull before work; commit only when asked; `[YYYY.MM.DD] - work summary`.
-8. Host/data: `docs/05-netlify-supabase.md` + `env_example`.
-9. Stitch HTML ??`front/publish/`; shared React UI ??`components/common/`.
-10. Express security per `docs/02-back.md` (CORS, no injection, validation).
+8. Host/data: `.AI/docs/05-netlify-supabase.md` + `env_example`.
+9. Stitch HTML → `front/publish/`; shared React UI → `components/common/`.
+10. Express security per `.AI/docs/02-back.md`.
+11. Keep root `Folder.md` in sync on structure changes.
+12. MCP via temporary `MCPkeys.json` + `scripts/register-mcp.mjs`.
+13. ERD: `.AI/md/db/erd.md`; Supabase SQL write only with user permission (`.AI/docs/10-db-erd-supabase.md`).

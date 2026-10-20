@@ -1,9 +1,12 @@
 # 08 — Role Work Routes & Recommended Context
 
 Split work by **Front**, **Back**, and **Python**.  
-Every role still follows `.AI/docs/00` → `06` → `07`, then this file.
+Every role follows `.AI/docs/00` → `06` → `07`, then this file.
 
-Human-facing copy with hyperlinks: [README — Roles](../../README.md#5-roles--front--back--python)
+**Spec is automated:** humans ask for **development only**.  
+The agent always creates/updates `.AI/md/specs/<feature>.md` first (see `.AI/docs/07-ai-md-workflow.md`).
+
+Human-facing copy: [README — Roles](../../README.md#5-roles--front--back--python)
 
 ## Quick Map
 
@@ -13,20 +16,36 @@ Human-facing copy with hyperlinks: [README — Roles](../../README.md#5-roles--f
 | **Back** | `back/**`, API, security, data | Render + Supabase | `.AI/md/jobs/back/` |
 | **Python** | `python/**` | Local / batch | none (default) |
 
+## Shared first step (all roles)
+
+```
+User request (dev only)
+  → AI auto-spec: .AI/md/specs/<feature>.md
+  → role route below
+```
+
 ---
 
 ## Front
 
-### Work route
+### Work route (human view)
 
 ```
-.AI/md/specs/<feature>.md
-  → Stitch design
-  → front/publish/<page>.html
-  → ask AI to convert
-  → pages/ + components/common/ + layout/
+[optional] Stitch → front/publish/<page>.html
+  → ask AI to build / convert
+  → React pages/ + components/common/ + layout/
   → services/api.js
   → .AI/md/jobs/front/ (+ Folder.md if needed)
+```
+
+### Work route (agent view)
+
+```
+auto-spec
+  → read publish HTML if any
+  → pages/ + common/ + layout/
+  → services/api.js
+  → jobs + mark spec done
 ```
 
 Do **not** edit `.AI/md/API/README.md` on front-only work.  
@@ -37,16 +56,15 @@ Do **not** call `fetch` outside `services/api.js`.
 | Priority | Path | Why |
 |----------|------|-----|
 | 1 | `.AI/docs/03-front.md` | Stitch, publish, common |
-| 2 | `.AI/docs/07-ai-md-workflow.md` | Conversion order |
-| 3 | `.AI/md/specs/<feature>.md` | Scope |
-| 4 | `front/publish/<page>.html` | Visual source |
-| 5 | `front/src/services/api.js` | API client |
-| 6 | `.AI/md/API/README.md` | Endpoints (read-only) |
-| 7 | `front/.env.example` | `VITE_*` names |
+| 2 | `.AI/docs/07-ai-md-workflow.md` | Auto-spec + conversion |
+| 3 | `front/publish/<page>.html` | Visual source (if any) |
+| 4 | `front/src/services/api.js` | API client |
+| 5 | `.AI/md/API/README.md` | Endpoints (read-only) |
+| 6 | `front/.env.example` | `VITE_*` names |
 
-### Prompt pattern
+### Prompt pattern (dev only)
 
-> Convert `front/publish/<page>.html` per `.AI/md/specs/<feature>.md`. Extract shared UI into `components/common/`. Wire APIs only through `services/api.js`.
+> Convert `front/publish/<page>.html` into React. Auto-create the spec. Extract shared UI into `components/common/`. Wire APIs only through `services/api.js`.
 
 ---
 
@@ -54,24 +72,34 @@ Do **not** call `fetch` outside `services/api.js`.
 
 ### MCP (strongly recommended)
 
-Back work is **much easier** with **Supabase + Netlify + Render MCP** connected.  
-Register via root `MCPkeys.json` → `node scripts/register-mcp.mjs` — see `.AI/docs/09-mcp-setup.md` and [README §1](../../README.md#1-mcp-registration-mcpkeysjson).
+Back is easier with **GitHub + Supabase + Netlify + Render** MCP.  
+Register via `MCPkeys.json` — `.AI/docs/09-mcp-setup.md` · [README §1](../../README.md#1-mcp-registration-mcpkeysjson).
 
-| MCP | Use for | Docs |
-|-----|---------|------|
-| Supabase | Tables, migrations, SQL (`read_only` first), Auth | https://supabase.com/docs/guides/ai-tools/mcp |
-| Render | Express service, env, deploys, logs | https://render.com/docs/mcp-server |
-| Netlify | Front `VITE_*` / site URL vs API CORS | https://github.com/netlify/netlify-mcp |
+| MCP | Use for |
+|-----|---------|
+| Supabase | Schema, SQL test (permission for write), Auth — `.AI/docs/10-db-erd-supabase.md` |
+| Render | Express host, env, deploys, logs |
+| Netlify | Front `VITE_*` / CORS alignment |
+| GitHub | Repo / PRs |
 
-Without MCP, follow `.AI/docs/05-netlify-supabase.md` + `env_example` manually.
-
-### Work route
+### Work route (human view)
 
 ```
-.AI/md/specs/<feature>.md (API + Data)
-  → routes/ → controller/ (validate) → models/ (Supabase, safe queries)
+ask AI for the API / feature
+  → routes/ → controller/ → models/
+  → security checklist
+  → .AI/md/API + jobs
+```
+
+### Work route (agent view)
+
+```
+auto-spec (API + Data)
+  → adapt ERD if needed (.AI/md/db/erd.md)
+  → optional Supabase MCP SQL (with permission)
+  → routes/ → controller/ → models/
   → security checklist (.AI/docs/02-back.md)
-  → .AI/md/API/README.md + .AI/md/jobs/back/ (+ Folder.md)
+  → .AI/md/API + jobs + Folder.md
 ```
 
 ### Recommended context
@@ -79,29 +107,38 @@ Without MCP, follow `.AI/docs/05-netlify-supabase.md` + `env_example` manually.
 | Priority | Path | Why |
 |----------|------|-----|
 | 1 | `.AI/docs/02-back.md` | MVC + security |
-| 2 | `.AI/docs/05-netlify-supabase.md` | Host / data |
-| 3 | `.AI/docs/09-mcp-setup.md` | MCP registration |
-| 4 | `.AI/md/specs/<feature>.md` | API + Data |
-| 5 | `.AI/md/API/README.md` | Existing endpoints |
-| 6 | `back/routes/`, `controller/`, `models/` | Code |
-| 7 | `back/middleware/security.js` | CORS / headers |
-| 8 | `env_example` + `back/.env.example` | Wiring |
+| 2 | `.AI/docs/10-db-erd-supabase.md` | Adaptive ERD + SQL |
+| 3 | `.AI/md/db/erd.md` | Living schema |
+| 4 | `.AI/docs/05-netlify-supabase.md` | Hosts |
+| 5 | `.AI/docs/09-mcp-setup.md` | MCP |
+| 6 | `.AI/docs/07-ai-md-workflow.md` | Auto-spec |
+| 7 | `.AI/md/API/README.md` | Endpoints |
+| 8 | `back/routes/`, `controller/`, `models/` | Code |
+| 9 | `back/middleware/security.js` | CORS / headers |
+| 10 | `env_example` + `back/.env.example` | Wiring |
 
-### Prompt pattern
+### Prompt pattern (dev only)
 
-> Implement API from `.AI/md/specs/<feature>.md` using routes → controller → models. Use Supabase/Render/Netlify MCP if available. Pass the security checklist. Update `.AI/md/API` and `.AI/md/jobs/back/`.
+> Add this API feature. Auto-create the spec. Use routes → controller → models. Adapt ERD if needed. With my permission, use Supabase MCP SQL to test. Update `.AI/md/API` and jobs.
 
 ---
 
 ## Python
 
-### Work route
+### Work route (human view)
 
 ```
-Clarify I/O in .AI/md/specs/ (or the user request)
+ask AI to change python/
+  → scripts / data only
+  → no jobs by default
+```
+
+### Work route (agent view)
+
+```
+auto-spec (I/O shape)
   → edit python/ only
-  → keep product/API JSON read-only unless the spec says otherwise
-  → no .AI/md/jobs required (default)
+  → mark spec done
 ```
 
 ### Recommended context
@@ -109,19 +146,20 @@ Clarify I/O in .AI/md/specs/ (or the user request)
 | Priority | Path | Why |
 |----------|------|-----|
 | 1 | `.AI/docs/00-overview.md` | Folder roles |
-| 2 | `python/` | Scripts |
-| 3 | `.AI/md/specs/<feature>.md` | Data shape |
+| 2 | `.AI/docs/07-ai-md-workflow.md` | Auto-spec |
+| 3 | `python/` | Scripts |
 | 4 | `env_example` | If calling hosted APIs |
 
-### Prompt pattern
+### Prompt pattern (dev only)
 
-> Update `python/...` per the spec. Do not change Express/React unless asked.
+> Update `python/...` for this behavior. Auto-create the spec. Do not change Express/React unless asked.
 
 ---
 
 ## Shared
 
 1. Boot: `AGENTS.md` / `CLAUDE.md` → `.AI/docs/00` → `06` → `07` → `08`
-2. English for all `.AI/md/**` and commits
-3. MCP tokens only via temporary `MCPkeys.json` — `.AI/docs/09-mcp-setup.md`
-4. Structure changes → update root `Folder.md`
+2. **Always auto-spec** before implementing
+3. English for all `.AI/md/**` and commits
+4. MCP tokens via temporary `MCPkeys.json` — `.AI/docs/09-mcp-setup.md`
+5. Structure changes → `Folder.md`

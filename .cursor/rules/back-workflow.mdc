@@ -1,11 +1,13 @@
 ---
-description: back ??pointer to docs/02-back.md (MVC + security)
+description: back — pointer to .AI/docs/02-back.md (MVC + security + ERD)
 globs: back/**
 alwaysApply: false
 ---
 
-Follow **`docs/02-back.md`**, **`docs/07-ai-md-workflow.md`**, and **`docs/05-netlify-supabase.md`**.
+Follow **`.AI/docs/02-back.md`**, **`.AI/docs/10-db-erd-supabase.md`**, **`.AI/docs/05-netlify-supabase.md`**, **`.AI/docs/07-ai-md-workflow.md`**.
 
-- Layering: `routes/` ??`controller/` ??`models/`
+- Auto-create/update `.AI/md/specs/<feature>.md` before coding (dev-only OK for humans)
+- Layering: `routes/` → `controller/` → `models/`
+- ERD: adapt `.AI/md/db/erd.md`; Supabase MCP SQL write only with user permission
 - Security: CORS allowlist, no SQL concatenation, validate inputs, safe errors
 - Then update `.AI/md/API/README.md` + `.AI/md/jobs/back/`

@@ -49,9 +49,11 @@ src/services/            ??API calls (api.js only)
 
 When converting, prefer reusable props over copy-pasted JSX. Name common components clearly (`Button`, `TextField`, `Card`, ??.
 
-## Spec-Driven UI Work
+## Spec-Driven UI Work (auto-spec OK)
 
-1. Read `.AI/md/specs/<feature>.md` (create/update if the user only dropped publish HTML).
+Humans may request **dev only**. Agent **auto-creates/updates** `.AI/md/specs/<feature>.md` first.
+
+1. Auto-create/update the spec from the user request (+ publish HTML if any).
 2. Prefer matching `front/publish/` HTML as the visual source.
 3. Build only screens/fields listed under **UI**.
 4. Wire to endpoints listed under **API** (do not invent extra APIs in front work).

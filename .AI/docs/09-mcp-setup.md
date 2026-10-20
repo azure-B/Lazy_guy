@@ -79,9 +79,11 @@ Use **GitHub + Supabase + Netlify + Render** MCP together.
 | Task | MCP |
 |------|-----|
 | Repo / PRs / issues | GitHub |
-| Schema / SQL / Auth | Supabase |
+| Schema / SQL / Auth / ERD testing | Supabase (see `.AI/docs/10-db-erd-supabase.md`) |
 | API host env / logs | Render |
 | Front env vs API URL | Netlify |
+
+For **direct SQL adjust + test**: start with `read_only: true`; when the user grants write permission, re-register with `read_only: false` (or use write-capable Supabase MCP tools), run DDL/DML tests, then update `.AI/md/db/erd.md`.
 
 Official docs:
 

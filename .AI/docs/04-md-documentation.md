@@ -1,33 +1,39 @@
-# 04 ??md Documentation Rules
+# 04 — md Documentation Rules
 
 Apply when writing or editing `.AI/md/**`.  
 **All md content must be English.**
 
 ## Purpose
 
-`md/` is how **non-engineers** participate: they write specs; agents implement and keep API/jobs/folder in sync.
+`.AI/md/` stores specs, API catalog, jobs, and the living ERD.  
 
-Agent behavior rules stay in `docs/` only. Keep `AGENTS.md` and `CLAUDE.md` identical (`docs/06-uniformity.md`).
+**Humans may skip writing specs** and only ask for development.  
+**Agents always auto-create/update** `.AI/md/specs/<feature>.md` in the same task (`.AI/docs/07-ai-md-workflow.md`).
+
+Agent behavior rules stay in `.AI/docs/` only. Keep `AGENTS.md` ≡ `CLAUDE.md` (`.AI/docs/06-uniformity.md`).
 
 ## .AI/md/specs/ (Feature Specs)
 
-Primary input for new features. Copy `.AI/md/specs/_TEMPLATE.md`.
+| Who | What |
+|-----|------|
+| Human (optional) | May fill `_TEMPLATE.md` in advance |
+| AI (required) | If no/incomplete spec, create/update from the user request before coding |
 
 | Field | Required | Notes |
 |-------|----------|-------|
 | Goal | Yes | One sentence |
 | Users | Yes | Who uses it |
-| UI | If front | Screens, fields, actions |
+| UI | If front | Screens, fields, actions; note publish path |
 | API | If back | Method, path, request, response |
-| Data | If DB | Supabase tables/columns |
+| Data | If DB | Supabase tables/columns + link to `.AI/md/db/erd.md` |
 | Out of scope | Yes | What not to build |
 | Status | Yes | `draft` \| `ready` \| `in-progress` \| `done` |
 
 Rules:
 
 - One feature per file: `.AI/md/specs/<kebab-case-name>.md`
-- Agents must not implement features that lack a spec (create the spec first)
-- Keep language plain ??no jargon required
+- Never implement without a spec file — **auto-create it** if the human did not
+- Plain English
 
 ## .AI/md/API/README.md
 
@@ -45,9 +51,13 @@ Single API catalog. Append each endpoint:
 
 Remove the section when the endpoint is deleted.
 
-## Folder.md
+## .AI/md/db/erd.md
 
-SSOT for the real project tree. Update only when folders/files are added, removed, or moved.
+Living ERD SSOT. AI may adapt for best results. See `.AI/docs/10-db-erd-supabase.md`.
+
+## Folder.md (project root)
+
+SSOT for the real project tree. Update when folders/files are added, removed, or moved.
 
 ## .AI/md/jobs/
 

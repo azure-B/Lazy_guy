@@ -26,8 +26,11 @@ lazy_guy/
 │   │   ├── 06-uniformity.md
 │   │   ├── 07-ai-md-workflow.md
 │   │   ├── 08-roles.md
-│   │   └── 09-mcp-setup.md
-│   └── md/                   ← specs, API catalog, jobs
+│   │   ├── 09-mcp-setup.md
+│   │   └── 10-db-erd-supabase.md
+│   └── md/                   ← specs, API catalog, jobs, ERD
+│       ├── db/
+│       │   └── erd.md        ← living ERD (AI may adapt)
 │       ├── API/
 │       │   └── README.md
 │       ├── specs/
